@@ -1,0 +1,76 @@
+---
+title: '🛠️[프로그래머스]-모의고사 문제'
+date: 2021-02-05 00:45:00 +0900
+tags: ['PROBLEM-SOLVING', 'C++', 'PROGRAMMERS']
+draft: false
+summary: '프로그래머스 완전탐색 [모의고사] 문제 해결'
+---
+
+## 📖문제 설명
+---
+수포자는 수학을 포기한 사람의 준말입니다. 수포자 삼인방은 모의고사에 수학 문제를 전부 찍으려 합니다. 수포자는 1번 문제부터 마지막 문제까지 다음과 같이 찍습니다.
+
+1번 수포자가 찍는 방식: 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, ...  
+2번 수포자가 찍는 방식: 2, 1, 2, 3, 2, 4, 2, 5, 2, 1, 2, 3, 2, 4, 2, 5, ...  
+3번 수포자가 찍는 방식: 3, 3, 1, 1, 2, 2, 4, 4, 5, 5, 3, 3, 1, 1, 2, 2, 4, 4, 5, 5, ...
+
+1번 문제부터 마지막 문제까지의 정답이 순서대로 들은 배열 answers가 주어졌을 때, 가장 많은 문제를 맞힌 사람이 누구인지 배열에 담아 return 하도록 solution 함수를 작성해주세요.
+
+제한 조건
+- 시험은 최대 10,000 문제로 구성되어있습니다.
+- 문제의 정답은 1, 2, 3, 4, 5중 하나입니다.
+- 가장 높은 점수를 받은 사람이 여럿일 경우, return하는 값을 오름차순 정렬해주세요.
+
+## ✏️문제 풀이
+---
+이번 문제의 주의사항은 ```answers```가 가변적이고 각 수포자들의 찍는 방식이 고정적이라는 점에 있다. 따라서, 찍는 방식의 규칙성을 바탕으로 들어올 ```answers``` 매개변수의 값을 비교하는 방식으로 카운팅 하면 쉽게 해결!
+
+## ⌨️풀이 코드
+---
+```cpp
+#include <string>
+#include <vector>
+
+using namespace std;
+
+vector<int> solution(vector<int> answers) {
+    int MAX_NUM = answers.size();
+    int biggest;
+    vector<int> returns;
+    int student[3] = { 0, 0, 0 };
+    int temparray[5] = {3, 1, 2, 4, 5};
+
+    // 1번 수포자 정답 비교
+    for (int i = 0; i < MAX_NUM; i++) {
+        if (answers[i] == (i % 5) + 1) { student[0]++; }
+    }
+
+    // 2번 수포자 정답 비교
+    for (int i = 0; i < MAX_NUM; i++) {
+        if (i % 2 == 0 && answers[i] == 2) { student[1]++; }
+        else {
+            if (i % 8 == 1 && answers[i] == 1) { student[1]++; }
+            if (i % 8 == 3 && answers[i] == 3) { student[1]++; }
+            if (i % 8 == 5 && answers[i] == 4) { student[1]++; }
+            if (i % 8 == 7 && answers[i] == 5) { student[1]++; }
+        }
+    }
+
+    // 3번 수포자 정답 비교
+    for (int i = 0; i < MAX_NUM; i++) {
+        int index = i % 10;
+        if(answers[i] == temparray[index/2]) { student[2]++; }
+    }
+
+    // 정답 횟수 비교
+    student[1] < student[2] ? biggest = student[2] : biggest = student[1];
+    biggest < student[0] ? biggest = student[0] : biggest = biggest;
+
+    for (int i = 0; i < 3; i++) {
+        if (student[i] == biggest) { returns.push_back(i+1); }
+    }
+    return returns;
+}
+```
+-----
+출처 : [프로그래머스 모의고사 문제](https://programmers.co.kr/learn/courses/30/lessons/42840)

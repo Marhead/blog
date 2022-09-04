@@ -1,0 +1,18 @@
+---
+title: '💼머신러닝(Machine-Learning) 시작하며'
+date: 2021-01-15 23:00:00 +0900
+tags: ['MACHINE-LEARNING', 'PYTHON']
+draft: false
+summary: '머신러닝을 공부하고 정리한 글을 올릴 포스트들에 대한 서문'
+---
+## 서문
+---
+컴퓨터에 관심 많던 친구들과 이번 겨울, 머신 러닝 입문을 목표로 잡으며 스터디를 시작했다. 개강 전까지 할 일 없이 빈둥대는 대학생으로 남기 싫은 몸부림이지만, 친구들 끼리 모여 공부를 시작하면 나름 좋은 결과를 만들어왔었다. 이번 2020 겨울에 시작하는 머신 러닝 스터디도 좋은 발전의 시작점이 되기를 기원하며, 학습 내용을 정리하며 포스팅 예정이다.
+
+*문과 출신* 컴퓨터 전공생으로서, 수리적 사고가 깊은 이과 친구들에 비해 머신 러닝 학습과 이해도가 떨어질 수 도 있음을 유의하길 바란다. 수학 학습을 이어가며 더욱 깊은 이해도를 뽐내고 싶었지만, 현재의 내 수준에서 최대한 노력한 결과이다. 오류나 지적사항이 있다면 댓글 및 개인 연락을 해주면 감사한 마음으로 수정하겠다.
+
+## 참고 자료 목록
+---
+- [Deep Learning from Scratch](https://www.hanbit.co.kr/media/community/review_view.html?hbr_idx=3595)
+- [PyTorchZeroToAll](https://www.youtube.com/playlist?list=PLlMkM4tgfjnJ3I-dbhO9JTw7gNty6o_2m)
+- [모두를 위한 딥러닝 시즌 2](https://www.youtube.com/playlist?list=PLQ28Nx3M4JrhkqBVIXg-i5_CVVoS1UzAv)

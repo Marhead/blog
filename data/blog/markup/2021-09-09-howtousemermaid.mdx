@@ -1,0 +1,447 @@
+---
+title: '💻Markdown mermaid 사용법'
+date: 2021-09-09 12:00:00 +0900
+tags: ['MARKUP', 'MISCELLANEOUS']
+draft: false
+summary: 'Markdown문서에서 mermaid library를 활용하여 다양한 다이어그램 그려내기'
+---
+
+Markdown 문서 환경에서 사용가능한 공식 Diagram Library, ``mermaid`` 사용법에 대하여 많이 쓰는 요소들 위주로 정리한 문서이다.
+
+# Graphs
+
+## Direction
+- Top to Bottom
+	```mermaid
+	graph TB
+	a --> b
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph TB
+	a --> b
+	```
+    ~~~
+- Bottom to Top
+	```mermaid
+	graph BT
+	a --> b
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph BT
+	a --> b
+	```
+    ~~~
+- Left to Right
+	```mermaid
+	graph LR
+	a --> b
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph LR
+	a --> b
+	```
+    ~~~
+- Right to Left
+	```mermaid
+	graph RL
+	a --> b
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph RL
+	a --> b
+	```
+    ~~~
+
+## Shapes
+
+- Normal Box
+	```mermaid
+	graph TD
+	boxa[Normal Box with Text]
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph TD
+	boxa[Normal Box with Text]
+	```
+    ~~~
+- Phill Shaped Box
+	```mermaid
+	graph TD
+	boxa([Normal Box with Text])
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph TD
+	boxa([Normal Box with Text])
+	```
+    ~~~
+- Box with Rounded edges
+	```mermaid
+	graph TD
+	boxa(Normal Box with Text)
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph TD
+	boxa(Normal Box with Text)
+	```
+    ~~~
+- Subroutine shaped Box
+	```mermaid
+	graph TD
+	boxa[[Normal Box with Text]]
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph TD
+	boxa[[Normal Box with Text]]
+	```
+    ~~~
+- Cylindrical Shape
+	```mermaid
+	graph TD
+	boxa[(Normal Box with Text)]
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph TD
+	boxa[(Normal Box with Text)]
+	```
+    ~~~
+- Circle
+	```mermaid
+	graph TD
+	boxa((Normal Box with Text))
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph TD
+	boxa((Normal Box with Text))
+	```
+    ~~~
+- Asymmetric Shape
+	```mermaid
+	graph TD
+	boxa>Normal Box with Text]
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph TD
+	boxa>Normal Box with Text]
+	```
+    ~~~
+- Rhombus
+	```mermaid
+	graph TD
+	boxa{Normal Box with Text}
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph TD
+	boxa{Normal Box with Text}
+	```
+    ~~~
+- Hexagon
+	```mermaid
+	graph TD
+	boxa{{Normal Box with Text}}
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph TD
+	boxa{{Normal Box with Text}}
+	```
+    ~~~
+- Parallelogram
+	```mermaid
+	graph TD
+	boxa[/Normal Box with Text/]
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph TD
+	boxa[/Normal Box with Text/]
+	```
+    ~~~
+- Parallelogram Alternative
+	```mermaid
+	graph TD
+	boxa[\Normal Box with Text\]
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph TD
+	boxa[\Normal Box with Text\]
+	```
+    ~~~
+- Trapezoid
+	```mermaid
+	graph TD
+	boxa[/Normal Box with Text\]
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph TD
+	boxa[/Normal Box with Text\]
+	```
+    ~~~
+- Trapezoid Alternative
+	```mermaid
+	graph TD
+	boxa[\Normal Box with Text/]
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph TD
+	boxa[\Normal Box with Text/]
+	```
+    ~~~
+
+## Links
+- Arrow head
+	```mermaid
+	graph LR
+	a-->b
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph LR
+	a-->b
+	```
+    ~~~
+- Open Link
+	```mermaid
+	graph LR
+	a---b
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph LR
+	a---b
+	```
+    ~~~
+- Text on Link
+	```mermaid
+	graph LR
+	a--text-->b
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph LR
+	a--text-->b
+	```
+    ~~~
+- Dotted Link
+	```mermaid
+	graph LR
+	a-.->b
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph LR
+	a-.->b
+	```
+    ~~~
+- Dotted Link with Text
+	```mermaid
+	graph LR
+	a-.Text.->b
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph LR
+	a-.Text.->b
+	```
+    ~~~
+- Thick Link
+	```mermaid
+	graph LR
+	a==>b
+	```
+    코드 : 
+    ~~~md
+    ```mermaid
+	graph LR
+	a==>b
+	```
+    ~~~
+
+# PieChart
+
+```mermaid
+pie title Fruit
+"Apple": 50
+"Banana": 40
+"Strawberry": 10
+```
+코드 : 
+~~~md
+```mermaid
+pie title Fruit
+"Apple": 50
+"Banana": 40
+"Strawberry": 10
+```
+~~~
+
+# GanttChart
+
+```mermaid
+gantt
+title Becoming Productivity Programmer
+dateformat DD-MM-YYYY
+section Computer Science Study
+MArkdown: a1, 04-07-2020, 3d
+Diagrams: after a1, 07-07-2020, 2d
+section Java Spring Development
+example study 1: 01-07-2020, 5d
+study 2: 07-07-2020, 12d
+```
+코드 : 
+~~~md
+```mermaid
+gantt
+title Becoming Productivity Programmer
+dateformat DD-MM-YYYY
+section Computer Science Study
+MArkdown: a1, 04-07-2020, 3d
+Diagrams: after a1, 07-07-2020, 2d
+section Java Spring Development
+example study 1: 01-07-2020, 5d
+study 2: 07-07-2020, 12d
+```
+~~~
+
+# Sequence Diagram
+
+```mermaid
+sequenceDiagram
+Alice ->> John : Hello John, How are you?
+John ->> Alice : Great!
+```
+코드 : 
+~~~md
+```mermaid
+sequenceDiagram
+Alice ->> John : Hello John, How are you?
+John ->> Alice : Great!
+```
+~~~
+
+# Class Diagram
+
+```mermaid
+classDiagram
+class Animal
+Vehicle <|-- Car
+```
+코드 : 
+~~~md
+```mermaid
+classDiagram
+class Animal
+Vehicle <|-- Car
+```
+~~~
+
+# State Diagram
+
+```mermaid
+stateDiagram-v2
+Push --> Move
+Move --> Stop
+```
+코드 : 
+~~~md
+```mermaid
+stateDiagram-v2
+Push --> Move
+Move --> Stop
+```
+~~~
+
+```mermaid
+stateDiagram-v2
+[*] --> Move
+Move --> [*]
+```
+코드 : 
+~~~md
+```mermaid
+stateDiagram-v2
+[*] --> Move
+Move --> [*]
+```
+~~~
+
+# Entity Relationship Diagram
+
+```mermaid
+erDiagram
+CUSTOMER ||--O{ ORDER : places
+ORDER ||--|{ LINE-ITEM : contains
+CUSTOMER }|..|{ DELIVERY-ADDRESS : users
+```
+코드 : 
+~~~md
+```mermaid
+erDiagram
+CUSTOMER ||--O{ ORDER : places
+ORDER ||--|{ LINE-ITEM : contains
+CUSTOMER }|..|{ DELIVERY-ADDRESS : users
+```
+~~~
+# User Journey
+
+```mermaid
+journey
+title My working day
+section Go to work
+	Make tea: 5 : Me
+	Go upstairs : 3 : Me
+	Do work : 1 : Me, Cat
+section Go Home
+	Go downstairs : 5 : Me
+	Sit down : 5 : Me
+```
+코드 : 
+~~~md
+```mermaid
+journey
+title My working day
+section Go to work
+	Make tea: 5 : Me
+	Go upstairs : 3 : Me
+	Do work : 1 : Me, Cat
+section Go Home
+	Go downstairs : 5 : Me
+	Sit down : 5 : Me
+```
+~~~

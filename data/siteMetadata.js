@@ -3,7 +3,7 @@ const siteMetadata = {
   author: 'Chihoon Song',
   headerTitle: 'Hoone\'s Den',
   description: '개발자 송치훈의 학습 내용 소굴',
-  language: 'ko-kr',
+  language: 'ko-KR',
   theme: 'system', // system, dark or light
   siteUrl: 'https://marhead-blog-marhead.vercel.app/',
   siteRepo: 'https://github.com/Marhead/blog',

@@ -5,7 +5,7 @@ const siteMetadata = {
   description: '개발자 송치훈의 학습 내용 소굴',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://www.hoonesden.com/',
+  siteUrl: 'https://marhead-blog-marhead.vercel.app/',
   siteRepo: 'https://github.com/Marhead/blog',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',

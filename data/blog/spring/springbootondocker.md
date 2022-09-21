@@ -5,7 +5,7 @@ tags: ['SPRING', 'DOCKER']
 draft: false
 summary: 'Spring boot 서버 Docker로 배포하기 위한 나의 Dockerfile 설정법 정리'
 ---
-
+![laptop](../../image/laptopwithdesk.jpg)
 ```Docker
 FROM openjdk:17-jdk as builder
 

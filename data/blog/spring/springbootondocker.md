@@ -3,9 +3,9 @@ title: 'Spring boot on Docker'
 date: 2022-09-20 01:00:00 +0900
 tags: ['SPRING', 'DOCKER']
 draft: false
+images: 'https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png'
 summary: 'Spring boot 서버 Docker로 배포하기 위한 나의 Dockerfile 설정법 정리'
 ---
-![laptop](../../image/laptopwithdesk.jpg)
 ```Docker
 FROM openjdk:17-jdk as builder
 

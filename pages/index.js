@@ -1,3 +1,4 @@
+import Image from '@/components/Image'
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
@@ -30,22 +31,20 @@ export default function Home({ posts }) {
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
           {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
-            const { slug, date, title, summary, tags, image } = frontMatter
+            const { slug, date, title, summary, tags, images } = frontMatter
             return (
-              <li key={slug} className="py-12">
+              <li key={slug} className="py-9">
                 <article>
-                  <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-                    <image image={image}>{image}</image>
-                  </div>
-                  <div className="space-y-2">
-                    <dl>
-                      <dt className="sr-only">Published on</dt>
-                      <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                        <time dateTime={date}>{formatDate(date)}</time>
-                      </dd>
-                    </dl>
+                  <div className="space-y-2 space-x-100 xl:grid xl:grid-cols-5 xl:items-baseline xl:space-y-0">
+                    <div><img alt={title} src={images} className="object-cover w-96"></img></div>
                     <div className="space-y-5 xl:col-span-3">
-                      <div className="space-y-6">
+                      <div className="space-y-4">
+                        <dl>
+                          <dt className="sr-only">Published on</dt>
+                          <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                            <time dateTime={date}>{formatDate(date)}</time>
+                          </dd>
+                        </dl>
                         <div>
                           <h2 className="text-2xl font-bold leading-8 tracking-tight">
                             <Link

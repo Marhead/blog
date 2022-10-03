@@ -5,3 +5,7 @@ tags: ['JAVA', 'SPRING']
 draft: true
 summary: 'Spring Boot에서 json형식으로 response 떨어뜨리는 3가지 방법'
 ---
+
+## 1. ``@Controller``
+## 2. ``@RestController(Spring Restful Controller)``
+## 3. ``Gson`` 사용하기

@@ -3,7 +3,7 @@ title: '💼Spring-Spring 시작'
 date: 2021-02-02 21:00:00 +0900
 tags: ['JAVA', 'SPRING']
 draft: true
-summary: '인프런 김영한 선생님 자바 스프링 강의'
+summary: 'Java 진영 대표 프레임워크 Spring Boot 학습 내용 정리 시작과 내용들의 목차 정리'
 ---
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Spring_Framework_Logo_2018.svg"></img>
 

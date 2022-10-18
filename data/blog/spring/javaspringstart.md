@@ -1,5 +1,5 @@
 ---
-title: '💼Spring-Spring 시작'
+title: '💼Spring 시작'
 date: 2021-02-02 21:00:00 +0900
 tags: ['JAVA', 'SPRING']
 draft: true

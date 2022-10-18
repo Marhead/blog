@@ -1,0 +1,40 @@
+---
+title: 'Lets encrypt를 활용하여 https 적용 과정'
+date: 2022-10-10 21:00:00 +0900
+tags: ['WEB', 'DEVOPS']
+draft: true
+summary: 'Lets encrypt 적용 과정 설명과 이해, 실 적용 방법을 정리한 글'
+---
+
+Let's encrypt란 ~~~한 프로그램이다.
+
+Let's encrypt를 적용하기 위해서는 ~~~를 해야한다.
+
+nginx를 container 기반으로 배포하게되었다.
+
+nginx를 통한 ssl을 적용한 배포순서는 다음과 같다.
+
+1. nginx를 일반 http, 80번 포트로 구동. 단, ``/.well-known/acme-challenge/`` 도메인을 열어놓아, let's encrypt에서 인증을 보낼 시 response를 내려 줄 수 있도록 설정.
+2. let's encrypt를 통하여 인증 실행
+3. response 확인 후 인증서 발급
+4. 발급받은 인증서 저장 위치를 기억한 후, nginx에 443포트, ssl 적용이 되도록 게이트를 다시 열어서 구동
+5. https request를 보내 서버 구동 확인.
+
+```yml
+
+```
+
+```conf
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name {domain}; // 중괄호까지 지우고, 등록한 도메인으로 변경
+
+    // 아래 도메인 설정으로, 첫 인증 request에 대응
+    location /.well-known/acme-challenge/ {
+             allow all;
+             root /var/www/certbot;
+    } 
+}
+```

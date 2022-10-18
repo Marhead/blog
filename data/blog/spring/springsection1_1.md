@@ -1,5 +1,5 @@
 ---
-title: '📓Spring-스프링 학습 01-01'
+title: '📓Spring 학습 01-01'
 date: 2021-02-03 05:00:00 +0900
 tags: ['JAVA', 'SPRING']
 draft: true

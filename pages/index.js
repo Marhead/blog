@@ -29,36 +29,33 @@ export default function Home({ posts }) {
           </p>
         </div>
         <div className="flex h-full overflow-hidden rounded bg-white dark:bg-gray-900">
-          <a className="flex flex-wrap no-underline hover:no-underline position: relative">
+          <a className="position: relative flex flex-wrap no-underline hover:no-underline">
             {!posts.length && 'no posts found.'}
-            {posts.slice(0, MAX_DISPLAY).map((frontMatter,indexCount) => {
+            {posts.slice(0, MAX_DISPLAY).map((frontMatter, indexCount) => {
               const { slug, date, title, summary, tags } = frontMatter
               // 대문
               if (indexCount == 0) {
                 return (
                   <>
                     <div key={slug} className="w-full rounded-t md:w-2/3">
-                      <Image 
-                        src={"/laptopwithdesk.jpg"}
+                      <Image
+                        src={'/laptopwithdesk.jpg'}
                         layout="fill"
                         className="h-full w-full shadow"
-                        href={"/blog/${slug}"}/>
+                        href={'/blog/${slug}'}/>
                     </div>
                     <div className="flex w-full flex-shrink flex-grow flex-col md:w-1/3">
                       <div className="flex-1 overflow-hidden rounded-t rounded-b-none bg-white shadow-lg">
-                        <p className="w-full px-6 pt-6 text-xs text-gray-600 md:text-sm "> 
-                          {tags.map((tag) => ( 
-                                <Tag key={tag} text={tag} />
-                              ))}
-
-                              </p>
-                        <div className="w-full px-6 text-xl font-bold text-gray-900">
-                          <a href={"/blog/${slug}"}>{title}</a></div>
-                        <p className="mb-5 px-6 text-base text-gray-800">
-                          {summary} 
+                        <p className="w-full px-6 pt-6 text-xs text-gray-600 md:text-sm ">
+                          {tags.map((tag) => (
+                            <Tag key={tag} text={tag} />
+                          ))}
                         </p>
+                        <div className="w-full px-6 text-xl font-bold text-gray-900">
+                          <a href={"/blog/${slug}"}>{title}</a>
+                        </div>
+                        <p className="mb-5 px-6 text-base text-gray-800">{summary}</p>
                       </div>
-
                       <div className="mt-auto flex-none bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
                         <div className="flex items-center justify-between position: relative">
                           <Image 
@@ -83,18 +80,16 @@ export default function Home({ posts }) {
                     <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
                       <a href="#" className="flex flex-wrap no-underline hover:no-underline position: relative">	
                         <Image 
-                          src={"/laptopwithdesk.jpg"} 
+                          src={'/laptopwithdesk.jpg'}
                           layout="fill"
                           className="h-full w-full rounded-t pb-6"/>
                         <p className="w-full text-gray-600 text-xs md:text-sm px-6">
                           {tags.map((tag) => (
-                                <Tag key={tag} text={tag} />
-                              ))}
+                            <Tag key={tag} text={tag} />
+                          ))}
                         </p>
                         <div className="w-full font-bold text-xl text-gray-900 px-6">{title}</div>
-                        <p className="text-gray-800 text-base px-6 mb-5">
-                          {summary}
-                        </p>
+                        <p className="text-gray-800 text-base px-6 mb-5">{summary}</p>
                       </a>
                     </div>
                     <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
@@ -120,18 +115,16 @@ export default function Home({ posts }) {
                     <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
                       <a href="#" className="flex flex-wrap no-underline hover:no-underline position: relative">
                         <Image 
-                          src={"/laptopwithdesk.jpg"}
+                          src={'/laptopwithdesk.jpg'}
                           layout="fill" 
                           className="h-full w-full rounded-t pb-6"/>
                         <p className="w-full text-gray-600 text-xs md:text-sm px-6">
-                        {tags.map((tag) => (
-                                <Tag key={tag} text={tag} />
-                              ))}
+                          {tags.map((tag) => (
+                            <Tag key={tag} text={tag} />
+                          ))}
                         </p>
                         <div className="w-full font-bold text-xl text-gray-900 px-6">{title}</div>
-                        <p className="text-gray-800 text-base px-6 mb-5">
-                          {summary} 
-                        </p>
+                        <p className="text-gray-800 text-base px-6 mb-5">{summary}</p>
                       </a>
                     </div>
                     <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
@@ -157,18 +150,16 @@ export default function Home({ posts }) {
                     <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
                       <a href="#" className="flex flex-wrap no-underline hover:no-underline position: relative">
                         <Image 
-                          src={"/laptopwithdesk.jpg"} 
+                          src={'/laptopwithdesk.jpg'}
                           layout="fill"
                           className="h-full w-full rounded-t pb-6"/>
                         <p className="w-full text-gray-600 text-xs md:text-sm px-6">
-                        {tags.map((tag) => (
-                                <Tag key={tag} text={tag} />
-                              ))}
+                          {tags.map((tag) => (
+                            <Tag key={tag} text={tag} />
+                          ))}
                         </p>
                         <div className="w-full font-bold text-xl text-gray-900 px-6">{title}</div>
-                        <p className="text-gray-800 text-base px-6 mb-5">
-                          {summary} 
-                        </p>
+                        <p className="text-gray-800 text-base px-6 mb-5">{summary}</p>
                       </a>
                     </div>
                     <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">

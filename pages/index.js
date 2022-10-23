@@ -78,119 +78,119 @@ export default function Home({ posts }) {
               }
               if (indexCount == 1 || indexCount == 9) {
                 return (
-                <>
-                  <div key={slug} className="w-full md:w-2/3 p-6 flex flex-col flex-grow flex-shrink">
-                    <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-                      <a href="#" className="flex flex-wrap no-underline hover:no-underline position: relative">	
-                        <Image 
-                          src={'/laptopwithdesk.jpg'}
-                          layout="fill"
-                          className="h-full w-full rounded-t pb-6"
-                        />
-                        <p className="w-full text-gray-600 text-xs md:text-sm px-6">
-                          {tags.map((tag) => (
-                            <Tag key={tag} text={tag} />
-                          ))}
-                        </p>
-                        <div className="w-full font-bold text-xl text-gray-900 px-6">{title}</div>
-                        <p className="mb-5 px-6 text-base text-gray-800">{summary}</p>
-                      </a>
-                    </div>
-                    <div className="mt-auto flex-none overflow-hidden rounded-b rounded-t-none bg-white p-6 shadow-lg">
-                      <div className="flex items-center justify-between position: relative">
-                        <Image 
-                          className="avatar mr-4 h-8 w-8 rounded-full"
-                          data-tippy-content="Author Name"
-                          src="/static/images/avatar.jpg"
-                          width="32px"
-                          height="32px"
-                          alt="Avatar of Author"
-                        />
-                        <p className="text-gray-600 text-xs md:text-sm">
-                          <time dateTime={date}>{formatDate(date)}</time>
-                        </p>
+                  <>
+                    <div key={slug} className="w-full md:w-2/3 p-6 flex flex-col flex-grow flex-shrink">
+                      <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
+                        <a href="#" className="flex flex-wrap no-underline hover:no-underline position: relative">	
+                          <Image 
+                            src={'/laptopwithdesk.jpg'}
+                            layout="fill"
+                            className="h-full w-full rounded-t pb-6"
+                          />
+                          <p className="w-full text-gray-600 text-xs md:text-sm px-6">
+                            {tags.map((tag) => (
+                              <Tag key={tag} text={tag} />
+                            ))}
+                          </p>
+                          <div className="w-full px-6 text-xl font-bold text-gray-900">{title}</div>
+                          <p className="mb-5 px-6 text-base text-gray-800">{summary}</p>
+                        </a>
+                      </div>
+                      <div className="mt-auto flex-none overflow-hidden rounded-b rounded-t-none bg-white p-6 shadow-lg">
+                        <div className="flex items-center justify-between position: relative">
+                          <Image 
+                            className="avatar mr-4 h-8 w-8 rounded-full"
+                            data-tippy-content="Author Name"
+                            src="/static/images/avatar.jpg"
+                            width="32px"
+                            height="32px"
+                            alt="Avatar of Author"
+                          />
+                          <p className="text-gray-600 text-xs md:text-sm">
+                            <time dateTime={date}>{formatDate(date)}</time>
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </>
+                  </>
                 )
               }
               if (indexCount == 2 || indexCount == 3 || indexCount == 4 || indexCount == 5 || indexCount == 8) {
                 return (
-                <>
-                  <div key={slug} className="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-                    <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-                      <a href="#" className="flex flex-wrap no-underline hover:no-underline position: relative">
-                        <Image 
-                          src={'/laptopwithdesk.jpg'}
-                          layout="fill"
-                          className="h-full w-full rounded-t pb-6"
-                        />
-                        <p className="w-full text-gray-600 text-xs md:text-sm px-6">
-                          {tags.map((tag) => (
-                            <Tag key={tag} text={tag} />
-                          ))}
-                        </p>
-                        <div className="w-full font-bold text-xl text-gray-900 px-6">{title}</div>
-                        <p className="mb-5 px-6 text-base text-gray-800">{summary}</p>
-                      </a>
-                    </div>
-                    <div className="mt-auto flex-none overflow-hidden rounded-b rounded-t-none bg-white p-6 shadow-lg">
-                      <div className="flex items-center justify-between position:relative">
-                        <Image 
-                          className="w-8 h-8 rounded-full mr-4 avatar"
-                          data-tippy-content="Author Name" 
-                          width="32px"
-                          height="32px"
-                          src="/static/images/avatar.jpg" 
-                          alt="Avatar of Author"
-                        />
-                        <p className="text-gray-600 text-xs md:text-sm">
-                          <time dateTime={date}>{formatDate(date)}</time>
-                        </p>
+                  <>
+                    <div key={slug} className="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+                      <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
+                        <a href="#" className="flex flex-wrap no-underline hover:no-underline position: relative">
+                          <Image 
+                            src={'/laptopwithdesk.jpg'}
+                            layout="fill"
+                            className="h-full w-full rounded-t pb-6"
+                          />
+                          <p className="w-full text-gray-600 text-xs md:text-sm px-6">
+                            {tags.map((tag) => (
+                              <Tag key={tag} text={tag} />
+                            ))}
+                          </p>
+                          <div className="w-full px-6 text-xl font-bold text-gray-900">{title}</div>
+                          <p className="mb-5 px-6 text-base text-gray-800">{summary}</p>
+                        </a>
+                      </div>
+                      <div className="mt-auto flex-none overflow-hidden rounded-b rounded-t-none bg-white p-6 shadow-lg">
+                        <div className="flex items-center justify-between position:relative">
+                          <Image 
+                            className="w-8 h-8 rounded-full mr-4 avatar"
+                            data-tippy-content="Author Name" 
+                            width="32px"
+                            height="32px"
+                            src="/static/images/avatar.jpg" 
+                            alt="Avatar of Author"
+                          />
+                          <p className="text-gray-600 text-xs md:text-sm">
+                            <time dateTime={date}>{formatDate(date)}</time>
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </>
+                  </>
                 )
               }
               if (indexCount == 6 || indexCount == 7) {
                 return (
-                <>
-                  <div key={slug} className="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
-                    <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-                      <a href="#" className="flex flex-wrap no-underline hover:no-underline position: relative">
-                        <Image 
-                          src={'/laptopwithdesk.jpg'}
-                          layout="fill"
-                          className="h-full w-full rounded-t pb-6"
-                        />
-                        <p className="w-full text-gray-600 text-xs md:text-sm px-6">
-                          {tags.map((tag) => (
-                            <Tag key={tag} text={tag} />
-                          ))}
-                        </p>
-                        <div className="w-full font-bold text-xl text-gray-900 px-6">{title}</div>
-                        <p className="mb-5 px-6 text-base text-gray-800">{summary}</p>
-                      </a>
-                    </div>
-                    <div className="mt-auto flex-none overflow-hidden rounded-b rounded-t-none bg-white p-6 shadow-lg">
-                      <div className="flex items-center justify-between position: relative">
-                        <Image 
-                          className="w-8 h-8 rounded-full mr-4 avatar"
-                          data-tippy-content="Author Name"
-                          src="/static/images/avatar.jpg" 
-                          width="32px"
-                          height="32px"
-                          alt="Avatar of Author"
-                        />
-                        <p className="text-gray-600 text-xs md:text-sm">
-                          <time dateTime={date}>{formatDate(date)}</time>
-                        </p>
+                  <>
+                    <div key={slug} className="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
+                      <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
+                        <a href="#" className="flex flex-wrap no-underline hover:no-underline position: relative">
+                          <Image 
+                            src={'/laptopwithdesk.jpg'}
+                            layout="fill"
+                            className="h-full w-full rounded-t pb-6"
+                          />
+                          <p className="w-full text-gray-600 text-xs md:text-sm px-6">
+                            {tags.map((tag) => (
+                              <Tag key={tag} text={tag} />
+                            ))}
+                          </p>
+                          <div className="w-full px-6 text-xl font-bold text-gray-900">{title}</div>
+                          <p className="mb-5 px-6 text-base text-gray-800">{summary}</p>
+                        </a>
+                      </div>
+                      <div className="mt-auto flex-none overflow-hidden rounded-b rounded-t-none bg-white p-6 shadow-lg">
+                        <div className="flex items-center justify-between position: relative">
+                          <Image 
+                            className="w-8 h-8 rounded-full mr-4 avatar"
+                            data-tippy-content="Author Name"
+                            src="/static/images/avatar.jpg" 
+                            width="32px"
+                            height="32px"
+                            alt="Avatar of Author"
+                          />
+                          <p className="text-gray-600 text-xs md:text-sm">
+                            <time dateTime={date}>{formatDate(date)}</time>
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </>
+                  </>
                 )
               }
             })}

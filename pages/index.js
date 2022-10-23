@@ -42,7 +42,8 @@ export default function Home({ posts }) {
                         src={'/laptopwithdesk.jpg'}
                         layout="fill"
                         className="h-full w-full shadow"
-                        href={'/blog/${slug}'}/>
+                        href={'/blog/${slug}'}
+                      />
                     </div>
                     <div className="flex w-full flex-shrink flex-grow flex-col md:w-1/3">
                       <div className="flex-1 overflow-hidden rounded-t rounded-b-none bg-white shadow-lg">
@@ -52,21 +53,23 @@ export default function Home({ posts }) {
                           ))}
                         </p>
                         <div className="w-full px-6 text-xl font-bold text-gray-900">
-                          <a href={"/blog/${slug}"}>{title}</a>
+                          <a href={'/blog/${slug}'}>{title}</a>
                         </div>
                         <p className="mb-5 px-6 text-base text-gray-800">{summary}</p>
                       </div>
-                      <div className="mt-auto flex-none bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
-                        <div className="flex items-center justify-between position: relative">
-                          <Image 
+                      <div className="mt-auto flex-none overflow-hidden rounded-b rounded-t-none bg-white p-6 shadow-lg">
+                        <div className="position: relative flex items-center justify-between">
+                          <Image
                             src="/static/images/avatar.jpg"
                             alt="Avatar"
                             width="32px"
                             height="32px"
-                            className="w-8 h-8 rounded-full mr-4 avatar" 
-                            data-tippy-content="Marhead" 
-                            />
-                          <p className="text-gray-600 text-xs md:text-sm"><time dateTime={date}>{formatDate(date)}</time></p>
+                            className="avatar mr-4 h-8 w-8 rounded-full" 
+                            data-tippy-content="Marhead"
+                          />
+                          <p className="text-gray-600 text-xs md:text-sm">
+                            <time dateTime={date}>{formatDate(date)}</time>
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -82,7 +85,8 @@ export default function Home({ posts }) {
                         <Image 
                           src={'/laptopwithdesk.jpg'}
                           layout="fill"
-                          className="h-full w-full rounded-t pb-6"/>
+                          className="h-full w-full rounded-t pb-6"
+                        />
                         <p className="w-full text-gray-600 text-xs md:text-sm px-6">
                           {tags.map((tag) => (
                             <Tag key={tag} text={tag} />
@@ -100,8 +104,11 @@ export default function Home({ posts }) {
                           src="/static/images/avatar.jpg" 
                           width="32px"
                           height="32px"
-                          alt="Avatar of Author"/>
-                        <p className="text-gray-600 text-xs md:text-sm"><time dateTime={date}>{formatDate(date)}</time></p>
+                          alt="Avatar of Author"
+                        />
+                        <p className="text-gray-600 text-xs md:text-sm">
+                          <time dateTime={date}>{formatDate(date)}</time>
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -117,7 +124,8 @@ export default function Home({ posts }) {
                         <Image 
                           src={'/laptopwithdesk.jpg'}
                           layout="fill" 
-                          className="h-full w-full rounded-t pb-6"/>
+                          className="h-full w-full rounded-t pb-6"
+                        />
                         <p className="w-full text-gray-600 text-xs md:text-sm px-6">
                           {tags.map((tag) => (
                             <Tag key={tag} text={tag} />
@@ -135,8 +143,11 @@ export default function Home({ posts }) {
                           width="32px"
                           height="32px"
                           src="/static/images/avatar.jpg" 
-                          alt="Avatar of Author"/>
-                        <p className="text-gray-600 text-xs md:text-sm"><time dateTime={date}>{formatDate(date)}</time></p>
+                          alt="Avatar of Author"
+                        />
+                        <p className="text-gray-600 text-xs md:text-sm">
+                          <time dateTime={date}>{formatDate(date)}</time>
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -152,7 +163,8 @@ export default function Home({ posts }) {
                         <Image 
                           src={'/laptopwithdesk.jpg'}
                           layout="fill"
-                          className="h-full w-full rounded-t pb-6"/>
+                          className="h-full w-full rounded-t pb-6"
+                        />
                         <p className="w-full text-gray-600 text-xs md:text-sm px-6">
                           {tags.map((tag) => (
                             <Tag key={tag} text={tag} />
@@ -170,8 +182,11 @@ export default function Home({ posts }) {
                           src="/static/images/avatar.jpg" 
                           width="32px"
                           height="32px"
-                          alt="Avatar of Author"/>
-                        <p className="text-gray-600 text-xs md:text-sm"><time dateTime={date}>{formatDate(date)}</time></p>
+                          alt="Avatar of Author"
+                        />
+                        <p className="text-gray-600 text-xs md:text-sm">
+                          <time dateTime={date}>{formatDate(date)}</time>
+                        </p>
                       </div>
                     </div>
                   </div>

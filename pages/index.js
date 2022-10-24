@@ -38,12 +38,14 @@ export default function Home({ posts }) {
                 return (
                   <>
                     <div key={slug} className="w-full rounded-t md:w-2/3">
-                      <Image
-                        src={'/laptopwithdesk.jpg'}
-                        layout="fill"
-                        className="h-full w-full shadow"
-                        href={'/blog/${slug}'}
-                      />
+                      <Link href={'/blog/${slug}'}>
+                        <Image
+                          src={'/laptopwithdesk.jpg'}
+                          layout="fill"
+                          className="h-full w-full shadow"
+                          href={'/blog/${slug}'}
+                        />
+                      </Link>
                     </div>
                     <div className="flex w-full flex-shrink flex-grow flex-col md:w-1/3">
                       <div className="flex-1 overflow-hidden rounded-t rounded-b-none bg-white shadow-lg">
@@ -53,7 +55,7 @@ export default function Home({ posts }) {
                           ))}
                         </p>
                         <div className="w-full px-6 text-xl font-bold text-gray-900">
-                          <a href={'/blog/${slug}'}>{title}</a>
+                          <Link href={'/blog/${slug}'}>{title}</Link>
                         </div>
                         <p className="mb-5 px-6 text-base text-gray-800">{summary}</p>
                       </div>

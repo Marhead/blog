@@ -127,7 +127,7 @@ export default function Home({ posts }) {
                 indexCount == 4 ||
                 indexCount == 5 ||
                 indexCount == 8
-                ) {
+              ) {
                 return (
                   <>
                     <div
@@ -139,7 +139,7 @@ export default function Home({ posts }) {
                           href="#"
                           className="position: relative flex flex-wrap no-underline hover:no-underline"
                         >
-                          <Image 
+                          <Image
                             src={'/laptopwithdesk.jpg'}
                             layout="fill"
                             className="h-full w-full rounded-t pb-6"
@@ -184,7 +184,7 @@ export default function Home({ posts }) {
                           href="#"
                           className="position: relative flex flex-wrap no-underline hover:no-underline"
                         >
-                          <Image 
+                          <Image
                             src={'/laptopwithdesk.jpg'}
                             layout="fill"
                             className="h-full w-full rounded-t pb-6"
@@ -218,15 +218,13 @@ export default function Home({ posts }) {
                 )
               }
             })}
-
-				    <div className="flex flex-wrap justify-between pt-12 -mx-6">
+				    <div className="-mx-6 flex flex-wrap justify-between pt-12">
             </div>
 					</a>
 				</div>
-        
       </div>
       {posts.length > MAX_DISPLAY && (
-        <div className="flex pt-6 justify-end text-base font-medium leading-6">
+        <div className="flex justify-end pt-6 text-base font-medium leading-6">
           <Link
             href="/blog"
             className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"

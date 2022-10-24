@@ -218,9 +218,9 @@ export default function Home({ posts }) {
                 )
               }
             })}
-				    <div className="-mx-6 flex flex-wrap justify-between pt-12"></div>
-					</a>
-				</div>
+            <div className="-mx-6 flex flex-wrap justify-between pt-12"></div>
+          </a>
+        </div>
       </div>
       {posts.length > MAX_DISPLAY && (
         <div className="flex justify-end pt-6 text-base font-medium leading-6">

@@ -40,7 +40,7 @@ export default function Home({ posts }) {
                     <div key={slug} className="w-full rounded-t md:w-2/3">
                       <Link href={`/blog/${slug}`}>
                         <Image
-                          src='/static/images/adsp.png'
+                          src="/static/images/adsp.png"
                           layout="fill"
                           className="h-full w-full shadow"
                           href={'/blog/${slug}'}

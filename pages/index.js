@@ -86,7 +86,7 @@ export default function Home({ posts }) {
                       <div className="flex-1 overflow-hidden rounded-t rounded-b-none bg-white shadow-lg">
                         <a
                           href="#"
-                          className="flex flex-wrap no-underline hover:no-underline position: relative"
+                          className="position: relative flex flex-wrap no-underline hover:no-underline"
                         >
                           <Image
                             src={'/laptopwithdesk.jpg'}
@@ -121,7 +121,13 @@ export default function Home({ posts }) {
                   </>
                 )
               }
-              if (indexCount == 2 || indexCount == 3 || indexCount == 4 || indexCount == 5 || indexCount == 8) {
+              if (
+                indexCount == 2 ||
+                indexCount == 3 ||
+                indexCount == 4 ||
+                indexCount == 5 ||
+                indexCount == 8
+                ) {
                 return (
                   <>
                     <div
@@ -131,7 +137,7 @@ export default function Home({ posts }) {
                       <div className="flex-1 overflow-hidden rounded-t rounded-b-none bg-white shadow-lg">
                         <a
                           href="#"
-                          className="flex flex-wrap no-underline hover:no-underline position: relative"
+                          className="position: relative flex flex-wrap no-underline hover:no-underline"
                         >
                           <Image 
                             src={'/laptopwithdesk.jpg'}
@@ -150,11 +156,11 @@ export default function Home({ posts }) {
                       <div className="mt-auto flex-none overflow-hidden rounded-b rounded-t-none bg-white p-6 shadow-lg">
                         <div className="position: relative flex items-center justify-between">
                           <Image
-                            className="w-8 h-8 rounded-full mr-4 avatar"
-                            data-tippy-content="Author Name" 
+                            className="avatar mr-4 h-8 w-8 rounded-full"
+                            data-tippy-content="Author Name"
                             width="32px"
                             height="32px"
-                            src="/static/images/avatar.jpg" 
+                            src="/static/images/avatar.jpg"
                             alt="Avatar of Author"
                           />
                           <p className="text-xs text-gray-600 md:text-sm">
@@ -176,7 +182,7 @@ export default function Home({ posts }) {
                       <div className="flex-1 overflow-hidden rounded-t rounded-b-none bg-white shadow-lg">
                         <a
                           href="#"
-                          className="flex flex-wrap no-underline hover:no-underline position: relative"
+                          className="position: relative flex flex-wrap no-underline hover:no-underline"
                         >
                           <Image 
                             src={'/laptopwithdesk.jpg'}
@@ -195,9 +201,9 @@ export default function Home({ posts }) {
                       <div className="mt-auto flex-none overflow-hidden rounded-b rounded-t-none bg-white p-6 shadow-lg">
                         <div className="position: relative flex items-center justify-between">
                           <Image
-                            className="w-8 h-8 rounded-full mr-4 avatar"
+                            className="avatar mr-4 h-8 w-8 rounded-full"
                             data-tippy-content="Author Name"
-                            src="/static/images/avatar.jpg" 
+                            src="/static/images/avatar.jpg"
                             width="32px"
                             height="32px"
                             alt="Avatar of Author"

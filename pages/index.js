@@ -218,8 +218,7 @@ export default function Home({ posts }) {
                 )
               }
             })}
-				    <div className="-mx-6 flex flex-wrap justify-between pt-12">
-            </div>
+				    <div className="-mx-6 flex flex-wrap justify-between pt-12"></div>
 					</a>
 				</div>
       </div>

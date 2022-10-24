@@ -80,14 +80,17 @@ export default function Home({ posts }) {
                 return (
                   <>
                     <div key={slug} className="w-full md:w-2/3 p-6 flex flex-col flex-grow flex-shrink">
-                      <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-                        <a href="#" className="flex flex-wrap no-underline hover:no-underline position: relative">	
-                          <Image 
+                      <div className="flex-1 overflow-hidden rounded-t rounded-b-none bg-white shadow-lg">
+                        <a
+                          href="#"
+                          className="flex flex-wrap no-underline hover:no-underline position: relative"
+                        >	
+                          <Image
                             src={'/laptopwithdesk.jpg'}
                             layout="fill"
                             className="h-full w-full rounded-t pb-6"
                           />
-                          <p className="w-full text-gray-600 text-xs md:text-sm px-6">
+                          <p className="w-full px-6 text-xs text-gray-600 md:text-sm">
                             {tags.map((tag) => (
                               <Tag key={tag} text={tag} />
                             ))}
@@ -97,8 +100,8 @@ export default function Home({ posts }) {
                         </a>
                       </div>
                       <div className="mt-auto flex-none overflow-hidden rounded-b rounded-t-none bg-white p-6 shadow-lg">
-                        <div className="flex items-center justify-between position: relative">
-                          <Image 
+                        <div className="position: relative flex items-center justify-between">
+                          <Image
                             className="avatar mr-4 h-8 w-8 rounded-full"
                             data-tippy-content="Author Name"
                             src="/static/images/avatar.jpg"
@@ -106,7 +109,7 @@ export default function Home({ posts }) {
                             height="32px"
                             alt="Avatar of Author"
                           />
-                          <p className="text-gray-600 text-xs md:text-sm">
+                          <p className="text-xs text-gray-600 md:text-sm">
                             <time dateTime={date}>{formatDate(date)}</time>
                           </p>
                         </div>
@@ -119,14 +122,14 @@ export default function Home({ posts }) {
                 return (
                   <>
                     <div key={slug} className="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-                      <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
+                      <div className="flex-1 overflow-hidden rounded-t rounded-b-none bg-white shadow-lg">
                         <a href="#" className="flex flex-wrap no-underline hover:no-underline position: relative">
                           <Image 
                             src={'/laptopwithdesk.jpg'}
                             layout="fill"
                             className="h-full w-full rounded-t pb-6"
                           />
-                          <p className="w-full text-gray-600 text-xs md:text-sm px-6">
+                          <p className="w-full px-6 text-xs text-gray-600 md:text-sm">
                             {tags.map((tag) => (
                               <Tag key={tag} text={tag} />
                             ))}
@@ -136,8 +139,8 @@ export default function Home({ posts }) {
                         </a>
                       </div>
                       <div className="mt-auto flex-none overflow-hidden rounded-b rounded-t-none bg-white p-6 shadow-lg">
-                        <div className="flex items-center justify-between position:relative">
-                          <Image 
+                        <div className="position: relative flex items-center justify-between">
+                          <Image
                             className="w-8 h-8 rounded-full mr-4 avatar"
                             data-tippy-content="Author Name" 
                             width="32px"
@@ -145,7 +148,7 @@ export default function Home({ posts }) {
                             src="/static/images/avatar.jpg" 
                             alt="Avatar of Author"
                           />
-                          <p className="text-gray-600 text-xs md:text-sm">
+                          <p className="text-xs text-gray-600 md:text-sm">
                             <time dateTime={date}>{formatDate(date)}</time>
                           </p>
                         </div>
@@ -158,14 +161,14 @@ export default function Home({ posts }) {
                 return (
                   <>
                     <div key={slug} className="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
-                      <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
+                      <div className="flex-1 overflow-hidden rounded-t rounded-b-none bg-white shadow-lg">
                         <a href="#" className="flex flex-wrap no-underline hover:no-underline position: relative">
                           <Image 
                             src={'/laptopwithdesk.jpg'}
                             layout="fill"
                             className="h-full w-full rounded-t pb-6"
                           />
-                          <p className="w-full text-gray-600 text-xs md:text-sm px-6">
+                          <p className="w-full px-6 text-xs text-gray-600 md:text-sm">
                             {tags.map((tag) => (
                               <Tag key={tag} text={tag} />
                             ))}
@@ -175,8 +178,8 @@ export default function Home({ posts }) {
                         </a>
                       </div>
                       <div className="mt-auto flex-none overflow-hidden rounded-b rounded-t-none bg-white p-6 shadow-lg">
-                        <div className="flex items-center justify-between position: relative">
-                          <Image 
+                        <div className="position: relative flex items-center justify-between">
+                          <Image
                             className="w-8 h-8 rounded-full mr-4 avatar"
                             data-tippy-content="Author Name"
                             src="/static/images/avatar.jpg" 
@@ -184,7 +187,7 @@ export default function Home({ posts }) {
                             height="32px"
                             alt="Avatar of Author"
                           />
-                          <p className="text-gray-600 text-xs md:text-sm">
+                          <p className="text-xs text-gray-600 md:text-sm">
                             <time dateTime={date}>{formatDate(date)}</time>
                           </p>
                         </div>

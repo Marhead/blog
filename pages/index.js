@@ -38,7 +38,7 @@ export default function Home({ posts }) {
                 return (
                   <>
                     <div key={slug} className="w-full rounded-t md:w-2/3">
-                      <Link href={'/blog/${slug}'}>
+                      <Link href={`/blog/${slug}`}>
                         <Image
                           src={'/laptopwithdesk.jpg'}
                           layout="fill"
@@ -55,7 +55,7 @@ export default function Home({ posts }) {
                           ))}
                         </p>
                         <div className="w-full px-6 text-xl font-bold text-gray-900">
-                          <Link href={'/blog/${slug}'}>{title}</Link>
+                          <Link href={`/blog/${slug}`}>{title}</Link>
                         </div>
                         <p className="mb-5 px-6 text-base text-gray-800">{summary}</p>
                       </div>
@@ -90,17 +90,21 @@ export default function Home({ posts }) {
                           href="#"
                           className="position: relative flex flex-wrap no-underline hover:no-underline"
                         >
-                          <Image
-                            src={'/laptopwithdesk.jpg'}
-                            layout="fill"
-                            className="h-full w-full rounded-t pb-6"
-                          />
+                          <Link href={`/blog/${slug}`}>
+                            <Image
+                              src={'/laptopwithdesk.jpg'}
+                              layout="fill"
+                              className="h-full w-full rounded-t pb-6"
+                            />
+                          </Link>
                           <p className="w-full px-6 text-xs text-gray-600 md:text-sm">
                             {tags.map((tag) => (
                               <Tag key={tag} text={tag} />
                             ))}
                           </p>
-                          <div className="w-full px-6 text-xl font-bold text-gray-900">{title}</div>
+                          <div className="w-full px-6 text-xl font-bold text-gray-900">
+                            <Link href={`/blog/${slug}`}>{title}</Link>
+                          </div>
                           <p className="mb-5 px-6 text-base text-gray-800">{summary}</p>
                         </a>
                       </div>
@@ -141,17 +145,21 @@ export default function Home({ posts }) {
                           href="#"
                           className="position: relative flex flex-wrap no-underline hover:no-underline"
                         >
-                          <Image
-                            src={'/laptopwithdesk.jpg'}
-                            layout="fill"
-                            className="h-full w-full rounded-t pb-6"
-                          />
+                          <Link href={`/blog/${slug}`}>
+                            <Image
+                              src={'/laptopwithdesk.jpg'}
+                              layout="fill"
+                              className="h-full w-full rounded-t pb-6"
+                            />
+                          </Link>
                           <p className="w-full px-6 text-xs text-gray-600 md:text-sm">
                             {tags.map((tag) => (
                               <Tag key={tag} text={tag} />
                             ))}
                           </p>
-                          <div className="w-full px-6 text-xl font-bold text-gray-900">{title}</div>
+                          <div className="w-full px-6 text-xl font-bold text-gray-900">
+                            <Link href={`/blog/${slug}`}>{title}</Link>
+                          </div>
                           <p className="mb-5 px-6 text-base text-gray-800">{summary}</p>
                         </a>
                       </div>
@@ -186,17 +194,21 @@ export default function Home({ posts }) {
                           href="#"
                           className="position: relative flex flex-wrap no-underline hover:no-underline"
                         >
-                          <Image
-                            src={'/laptopwithdesk.jpg'}
-                            layout="fill"
-                            className="h-full w-full rounded-t pb-6"
-                          />
+                          <Link href={`/blog/${slug}`}>
+                            <Image
+                              src={'/laptopwithdesk.jpg'}
+                              layout="fill"
+                              className="h-full w-full rounded-t pb-6"
+                            />
+                          </Link>
                           <p className="w-full px-6 text-xs text-gray-600 md:text-sm">
                             {tags.map((tag) => (
                               <Tag key={tag} text={tag} />
                             ))}
                           </p>
-                          <div className="w-full px-6 text-xl font-bold text-gray-900">{title}</div>
+                          <div className="w-full px-6 text-xl font-bold text-gray-900">
+                            <Link href={`/blog/${slug}`}>{title}</Link>
+                          </div>
                           <p className="mb-5 px-6 text-base text-gray-800">{summary}</p>
                         </a>
                       </div>

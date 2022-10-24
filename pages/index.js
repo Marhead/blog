@@ -40,7 +40,7 @@ export default function Home({ posts }) {
                     <div key={slug} className="w-full rounded-t md:w-2/3">
                       <Link href={`/blog/${slug}`}>
                         <Image
-                          src={'/laptopwithdesk.jpg'}
+                          src='/static/images/adsp.png'
                           layout="fill"
                           className="h-full w-full shadow"
                           href={'/blog/${slug}'}
@@ -92,7 +92,7 @@ export default function Home({ posts }) {
                         >
                           <Link href={`/blog/${slug}`}>
                             <Image
-                              src={'/laptopwithdesk.jpg'}
+                              src="/static/images/adsp.png"
                               layout="fill"
                               className="h-full w-full rounded-t pb-6"
                             />
@@ -147,7 +147,7 @@ export default function Home({ posts }) {
                         >
                           <Link href={`/blog/${slug}`}>
                             <Image
-                              src={'/laptopwithdesk.jpg'}
+                              src="/static/images/adsp.png"
                               layout="fill"
                               className="h-full w-full rounded-t pb-6"
                             />
@@ -196,7 +196,7 @@ export default function Home({ posts }) {
                         >
                           <Link href={`/blog/${slug}`}>
                             <Image
-                              src={'/laptopwithdesk.jpg'}
+                              src="/static/images/adsp.png"
                               layout="fill"
                               className="h-full w-full rounded-t pb-6"
                             />

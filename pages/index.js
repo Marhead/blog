@@ -79,12 +79,15 @@ export default function Home({ posts }) {
               if (indexCount == 1 || indexCount == 9) {
                 return (
                   <>
-                    <div key={slug} className="w-full md:w-2/3 p-6 flex flex-col flex-grow flex-shrink">
+                    <div
+                      key={slug}
+                      className="flex w-full flex-shrink flex-grow flex-col p-6 md:w-2/3"
+                    >
                       <div className="flex-1 overflow-hidden rounded-t rounded-b-none bg-white shadow-lg">
                         <a
                           href="#"
                           className="flex flex-wrap no-underline hover:no-underline position: relative"
-                        >	
+                        >
                           <Image
                             src={'/laptopwithdesk.jpg'}
                             layout="fill"
@@ -121,9 +124,15 @@ export default function Home({ posts }) {
               if (indexCount == 2 || indexCount == 3 || indexCount == 4 || indexCount == 5 || indexCount == 8) {
                 return (
                   <>
-                    <div key={slug} className="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+                    <div
+                      key={slug}
+                      className="flex w-full flex-shrink flex-grow flex-col p-6 md:w-2/3"
+                    >
                       <div className="flex-1 overflow-hidden rounded-t rounded-b-none bg-white shadow-lg">
-                        <a href="#" className="flex flex-wrap no-underline hover:no-underline position: relative">
+                        <a
+                          href="#"
+                          className="flex flex-wrap no-underline hover:no-underline position: relative"
+                        >
                           <Image 
                             src={'/laptopwithdesk.jpg'}
                             layout="fill"
@@ -160,9 +169,15 @@ export default function Home({ posts }) {
               if (indexCount == 6 || indexCount == 7) {
                 return (
                   <>
-                    <div key={slug} className="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
+                    <div
+                      key={slug}
+                      className="flex w-full flex-shrink flex-grow flex-col p-6 md:w-2/3"
+                    >
                       <div className="flex-1 overflow-hidden rounded-t rounded-b-none bg-white shadow-lg">
-                        <a href="#" className="flex flex-wrap no-underline hover:no-underline position: relative">
+                        <a
+                          href="#"
+                          className="flex flex-wrap no-underline hover:no-underline position: relative"
+                        >
                           <Image 
                             src={'/laptopwithdesk.jpg'}
                             layout="fill"

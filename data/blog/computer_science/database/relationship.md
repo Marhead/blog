@@ -1,5 +1,5 @@
 ---
-title: '🗄️데이터베이스 - 관계(Relationship)'
+title: '데이터베이스 - 관계(Relationship)'
 date: 2022-09-03 12:00:00 +0900
 tags: ['COMPUTER-SCIENCE', 'DATABASE']
 draft: false

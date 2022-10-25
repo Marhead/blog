@@ -4,6 +4,7 @@ date: 2022-09-05 13:00:00 +0900
 tags: ['LICENSE']
 draft: false
 summary: '데이터 분석 준전문가 자격증 취득을 위한 학습 내용 중 Part 1, 1장 2절 데이터베이스 정의와 특징 챕터 정리 내용'
+image: 'adsp.png'
 ---
 
 ## 용어의 연혁(역사)

@@ -1,0 +1,16 @@
+---
+title: '오토마타 - 3가지 기본 개념'
+date: 2022-09-16 14:00:00 +0900
+tags: ['COMPUTER-SCIENCE', 'AUTOMATA']
+draft: false
+summary: '오토마타 이론의 핵심 3가지 개념, Languages, Grammar, And Automata에 관하여 정리한 글'
+image: 'automata.jpg'
+---
+
+# Three Basic Concepts
+
+## 1. Languages
+
+## 2. Grammars
+
+## 3. Automata

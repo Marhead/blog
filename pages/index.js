@@ -86,7 +86,7 @@ export default function Home({ posts }) {
                     )
                   }
                 })}
-                <div className="-mx-6flex flex-wrap justify-between pt-12">
+                <div className="-mx-6 flex flex-wrap justify-between pt-12">
                   {posts.slice(1, MAX_DISPLAY).map((frontMatter, indexCount) => {
                     const { slug, date, title, summary, tags, image } = frontMatter
 

@@ -30,8 +30,8 @@ export default function Home({ posts }) {
         </div>
         <div className="flex h-full overflow-hidden rounded bg-white dark:bg-gray-900">
           <a className="position: relative flex flex-wrap no-underline hover:no-underline">
-              <div className="mx-0 sm:mx-6">
-                <div className="w-full rounded-t bg-white text-xl leading-normal text-gray-800 dark:bg-gray-900 md:text-2xl">
+            <div className="mx-0 sm:mx-6">
+              <div className="w-full rounded-t bg-white text-xl leading-normal text-gray-800 dark:bg-gray-900 md:text-2xl">
                 {!posts.length && 'no posts found.'}
                 {posts.slice(0, 1).map((frontMatter, indexCount) => {
                   const { slug, date, title, summary, tags, image } = frontMatter
@@ -39,8 +39,11 @@ export default function Home({ posts }) {
                   if (indexCount == 0) {
                     return (
                       <>
-                        <div className="flex h-full bg-white rounded overflow-hidden shadow-lg">
-                          <a href={`/blog/${slug}`} className="flex flex-wrap no-underline hover:no-underline">
+                        <div className="flex h-full overflow-hidden rounded bg-white shadow-lg">
+                          <a
+                            href={`/blog/${slug}`}
+                            className="flex flex-wrap no-underline hover:no-underline"
+                          >
                             <div key={slug} className="w-full rounded-t md:w-2/3">
                               <Image
                                 src={`/static/images/${image}`}
@@ -49,7 +52,7 @@ export default function Home({ posts }) {
                                 className="h-full w-full shadow"
                               />
                             </div>
-                            <div className="flex w-full flex-shrink flex-grow flex-col md:w-1/3 bg-gray-100">
+                            <div className="flex w-full flex-shrink flex-grow flex-col bg-gray-100 md:w-1/3">
                               <div className="flex-1 overflow-hidden rounded-t rounded-b-none shadow-lg">
                                 <p className="w-full px-6 pt-6 text-xs text-gray-600 md:text-sm ">
                                   {tags.map((tag) => (
@@ -245,7 +248,7 @@ export default function Home({ posts }) {
                     }
                   })}
                 </div>
-                </div>
+              </div>
               </div>
             <div className="-mx-6 flex flex-wrap justify-between pt-12"></div>
           </a>

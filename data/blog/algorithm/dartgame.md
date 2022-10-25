@@ -4,6 +4,7 @@ date: 2021-02-01 21:00:00 +0900
 tags: ['PROBLEM-SOLVING', 'PYTHON', 'KAKAO', 'PROGRAMMERS']
 draft: false
 summary: '프로그래머스 2018 카카오 블라인드 [다트 게임] 문제 해결'
+image: 'algorithm-flow-1.jpg'
 ---
 
 ## 📖문제 설명

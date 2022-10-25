@@ -4,7 +4,7 @@ date: 2022-09-20 01:00:00 +0900
 tags: ['SPRING', 'DOCKER']
 draft: false
 summary: 'Spring boot 서버 Docker로 배포하기 위한 나의 Dockerfile 설정법 정리'
-image: 'OG-Spring.png'
+image: 'spring.png'
 ---
 스터디-동아리 팀에서 새로운 어플 개발을 진행하고 있다. 팀원 중 한명이 데브옵스를 전담하기로 하였고, 나는 앱 서버 개발을 담당하게 되었다. 팀원은 도커를 활용하여 서버 인프라를 구성할테니, 나에게 배포용 Dockerfile을 깔끔하게 만들어 달라고 했다.
 

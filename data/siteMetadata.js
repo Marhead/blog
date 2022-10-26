@@ -15,7 +15,7 @@ const siteMetadata = {
   github: 'https://github.com/Marhead',
   twitter: 'https://twitter.com/chihoon0415',
   facebook: 'https://www.facebook.com/profile.php?id=100003318164804',
-  // discord: 'Marhead#1482',
+  discord: 'Marhead#1482',
   // youtube: 'https://youtube.com',
   // linkedin: 'https://www.linkedin.com',
   locale: 'ko-KR',

@@ -1,9 +1,11 @@
 ---
 name: 송 치훈
 avatar: /static/images/avatar.jpg
-occupation: 프로그래머
+occupation: Programmer
 company: Eoncare
 email: clgns0415@gmail.com
+telegram: https://t.me/Marhead
+discord: Marhead#1482
 twitter: https://twitter.com/chihoon0415
 github: https://github.com/Marhead
 ---

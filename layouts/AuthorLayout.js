@@ -4,7 +4,7 @@ import { PageSEO } from '@/components/SEO'
 
 export default function AuthorLayout({ children, frontMatter }) {
   const { name, avatar, occupation, company, email, telegram, twitter, discord, linkedin, github } =
-   frontMatter
+    frontMatter
 
   return (
     <>

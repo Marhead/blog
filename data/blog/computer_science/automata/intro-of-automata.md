@@ -8,3 +8,75 @@ image: 'automata.jpg'
 ---
 
 # What is Automata?
+
+오토마타(Automata)란? 스스로 작동하는 기계라는 의미를 지닌 오토마톤(AUtomaton)의 복수형으로,추상적인 연산 장치 및 기계(Machine) 그 자체이다. 오토마톤은 연산능력을 갖춘 "것"을 일컬으는 단어이지만, 반드시 **물리적인 하드웨어**로 국한되지 않는다. 즉, 관념적인 연산 장치 자체를 지칭한다. 현대 산업에서는 자동 제어 기계를 뜻하는 단어이다.
+학문적으로 오토마타 이론은 *추상적인 연산장치(오토마타)와 그것이 계산할 수 있는 것과 그렇지 않은 것*을 다루는 이론이다. 이러한 오토마타 이론의 목적은 컴퓨터 과학의 근본적인 목적과 궁금증을 엿볼 수 있다. "Computation 이론" 즉, 계산 할 수 있는 것과 없는 것의 차이를 찾는 것이다.
+단, 앞선 오토마타와 비슷하지만 다른 이론으로 **계산 이론**을 엿볼 수 있다. 계산 이론과 오토마타 이론의 근본적인 차이는 연산대상에 대해 판단할 때, 기계(Machine)의 관여 여부라고 할 수 있다. 오토마타 이론은 계산이론 보다는 기계를 통한 연산 가능성을 판별하는 학문이고, 계산이론은 문제 자체에 집중하여 계산 가능한지에 관한 여부를 판별한다.
+
+아래 단어들은 오토마타 이론의 배경이 되는 술어들을 정리하였다.
+
+## Terminology
+
+### automaton
+
+digital computer의 모든 필수 불가결의 요소를 가진 어떤 것.
+수학적으로 정의한 구성요소로는 : input, make decisions, [output], [temporary storage]
+
+### formal language
+
+형식 언어, programming language의 일반적 성질을 추상화한 것. symbol들의 집합과 규칙. 그러므로 생성 규칙에 의해 허용되는 모든 문자열들의 집합
+
+### algorithm
+
+일상적으로 "어떻게 ~~~ 하는 법"을 의미한다.
+
+#### "algorithm"의 조건
+
+1. finite description
+2. consists of "elementary" steps
+3. gives always the same result on the same input
+4. for any input, it runs for finite time and produces finite output
+
+> 여기서 4번 조건을 제외한 나머지 3개의 조건을 만족시킨 algorithm에 대하여 semi-algorithm이라고 한다.
+
+#### algorithm의 정의를 위한 시도("Models of computation")
+
+1. Turing machine (TM) description
+2. Kleene characterization of computable functions
+3. Markov algorithm
+4. Post production system
+5. Church's lambda-calculus
+6. 기타 모델들(von Neumann model 등)
+
+### Function
+
+함수 $f : A -> B$란, A의 각 원소 $x$와 $B$의 원소 $f(x)$를 연관시키는 규칙이다.
+
+total function : 모든 $input x$에 대하여 그 함수 값이 유일하게 정의되는 함수
+partial function : 어떤 $input x$에 대해서는 그 함수 값이 정의되지 않는 함수
+
+$ total funciton <=> algorithm, partial function <=> semi-algorithm $
+
+
+### Theory of computing
+
+두 가지 영역으로 나뉜다.
+
+1. computability theory -> 어떤 문제가 (궁극적으로) 계산 가능/불가능(풀 수 있나/없나)? 를 다루는 영역. 시대 및 기술 수준에 무관한 논의로서, abstract model을 필요로 한다.
+2. computational complexity theory -> 계산이 가능한(풀 수 있는) 문제 중 어떤 것이 쉬운가/어려운가? 더욱 효율적인 algorithm이 존재하는가/존재하지 않는가? 그리고 계산하는 데(푸는 데) 시간적/공간적인 resource가 얼마나 필요한가? 를 다루는 영역. algorithm의 개발 및 분석을 하는 영역이다.
+
+
+
+### Computability
+
+어떤 함수(혹은 문제)는 그것을 계산하는(혹은 푸는) algorithm이 존재하면, (eventually) **computable**(혹은 solvable)이라 한다.
+
+반면에, 어떤 함수(혹은 문제)는 그것을 계산하는(혹은 푸는) semi-algorithm이 존재하면 partial computable(혹은 partially solvable)이라 한다.
+
+Computability에서는 기술수준, 시간 및 공간적 제약 없이 "궁극적으로" 해결할 수 있냐 없냐를 다룸. 따라서, computability의 관점에서 다양한 컴퓨터 모델들은 같은 성능으로 취급한다.
+
+### Church's thesis
+
+### Godel's Incompleteness theorem
+
+#### Rusell's paradox

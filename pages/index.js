@@ -39,7 +39,7 @@ export default function Home({ posts }) {
                   if (indexCount == 0) {
                     return (
                       <>
-                        <div className="flex h-full overflow-hidden rounded bg-white shadow-lg">
+                        <div className="flex overflow-hidden rounded bg-white shadow-lg">
                           <a
                             href={`/blog/${slug}`}
                             className="flex flex-wrap no-underline hover:no-underline"

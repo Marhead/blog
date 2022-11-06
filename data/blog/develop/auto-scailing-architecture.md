@@ -1,0 +1,155 @@
+---
+title: 'Auto-Scalable Architecture'
+date: 2022-11-3 09:00:00 +0900
+tags: ['PYTHON', 'DJANGO']
+draft: true
+summary: 'Django 서버 배포 중 마주한 에러 내용을 정리하고 대처한 방법을 기록'
+---
+
+Design an Auto-Scalable Architecture for Your Django Apps in AWS
+Using serverless containers to achieve resiliency, performance, and security with zero servers maintenance
+
+You finally have a working version that is good enough to go public. Well done! But now you are wondering how to move your Django app into production in AWS, and how to make it scalable, resilient, performant, and secure while optimizing costs and requiring no manual infrastructure management. This is what this article is about.
+
+Reviewing the Development Architecture
+A typical architecture of a Django app in development looks like this:
+
+[[picture for basic step]]
+
+So we can identify two main components:
+
+The Django app: Usually served by runserver, which is the development server packaged with Django.
+The Database: Django supports multiple databases, for example, PostgreSQL, MySQL, and SQLite.
+You may be tempted to copy the same setup into a server or virtual machine and get it running in production, but as you will see, this architecture has some flaws:
+
+### It’s not scalable
+Runserver is not optimized nor prepared to handle a high number of requests, and even if you replace it with some production application server like gunicorn, the number of requests that a single server can handle will be limited by its hardware resources. So as soon as you start getting more and more requests the system will eventually get unresponsive and requests will start timing out.
+
+Adding more resources to the server, aka vertical scaling, can temporarily solve the issue but you will reach the limit soon again and you will repeat the process until you can’t add more resources. You can add a load balancer and then add more servers, but doing this manually can be slow and painful, and if you hadn’t planned for it, it may cause downtime.
+
+### It’s not performant
+Runserver is not optimized for performance. Also, static files and media are served by the same process attending requests which delays request processing and consumes more resources. Furthermore, if you are using the default SQLite DB, it allows only one write operation to take place at any given time, which significantly limits the throughput. I don’t recommend using SQLite in production.
+
+### Security vulnerabilities
+Runserver runs over HTTP instead of HTTPS, which is OK for local development, but not suitable for production. Also, if the database is running in the same host as the Django app and the host is exposed to the internet, if someone hacks into the server he now can attack your database too.
+
+### Servers maintenance is painful
+You need to manually monitor and manage your servers and resources. If a server gets into an unhealthy state or more resources are required, this will require manual intervention and it may generate downtime.
+
+Designing a Production-Ready Architecture in AWS
+Now we will design the new production architecture using several AWS services that will help us to solve the problems described above.
+
+Prerequisites: Dockerize your Django app. The chosen architecture requires a containerized application.
+
+Let’s take a look at the purposed architecture now:
+
+
+You can get this diagram in full-size here
+The application load balancer
+
+First, we add an Application Load Balancer (ALB) to enable horizontal scaling and health checks. Now the requests can be distributed between several instances and unhealthy instances can be detected and replaced. The ALB also supports port forwarding so you won’t need intermediate proxies like nginx as the requests can be directly forwarded to the application on port 8000.
+
+The ALB also supports HTTPS and SSL/TLS certificates that can be added using the AWS Certificates Manager. In that case, the TLS session is terminated at the load balancer and then the traffic is forwarded over HTTP to the app, but through your private cloud network, to the app.
+
+You will also notice that the ALB is deployed in two public subnets in two different Availability Zones (AZs). Being in a public subnet allows it to receive requests from the internet, and using two AZs ensures it will still work even if one AZ goes down.
+
+The elastic container service (ECS) and serverless containers
+
+ECS allows running docker containers in the cloud. We use it to run our Django app instances. ECS supports two ways of running containers: You can run the containers inside a server (EC2 VM or on-premise) or you can run containers in serverless mode using Fargate.
+
+We use Fargate as we don’t want to manage servers. This requires creating an ECS Cluster and an ECS Service with the Fargate launch type and then adding a Task Definition which specifies the containers that will run as part of the service. In this case, we need to define a single task/container for the Django app. The image of the container is taken from a docker registry.
+
+Notice that the containers must be stateless so they can be destroyed and recreated anytime. This enables one of the greatest features of ECS Services (and of AWS in general): auto-scaling. We set a minimum, a desired, and a maximum number of tasks, and we use CloudWatch metrics like average CPU usage (higher CPU usage = higher traffic) to automatically scale out (adding more instances) or scale in (removing instances) as needed.
+
+Having a minimum of two instances guarantees that the system will keep operating if one goes down, while health checks will allow the automatic detection of failing instances to replace them with new and healthy ones. Also, placing these two instances in two different availability zones (AZ) will split the risk in case of one AWS data center goes down.
+
+Finally, we don’t forget about security. We place our ECS Tasks in private subnets so they are not exposed to the internet and they can only receive requests from the load balancer.
+
+Aurora serverless as the database
+
+A database is stateful by nature because it stores data that has to be persistent. So it can’t run as a stateless container in ECS/Fargate. But we don’t want to manage a server or VM for the database.
+
+Luckily, AWS has a managed service called Aurora Serverless. Aurora Serverless is a fully managed service for relational databases supporting PostgreSQL. Being serverless means that it auto-scales and it doesn’t require you to provision or manage any resources.
+
+Similar to ECS Services, we set a minimum and maximum capacity, and it auto-scales on demand. To save some costs, you can also enable the auto-pause feature to temporarily downscale the capacity to zero after being idle (no connections) for N minutes. This means that the DB shuts down until it receives a new connection request. This is especially useful for pre-prod / staging environments, but not so suitable for production as the wake-up time can take up to one or two minutes.
+
+Aurora DB also supports automatic backups as a disaster recovery strategy. And as a plus, the overall performance of Aurora DB is three times faster than a regular PostgreSQL instance.
+
+Notice also that we place the database in the same private subnets where the ECS Service is running, so the DB is accessible from our Django app and it’s not exposed to the internet.
+
+CodePipeline and the CI/CD pipelines
+CodePipeline is a continuous integration / continuous delivery service that allows automating the software release process. A pipeline is composed of stages that can be customized so it can be adapted to any branching model you are using such as trunk-based, GitHub Flow, GitFlow, or other custom branching models.
+
+For example, these would be the stages using a classic GitHub Flow branching model.
+
+Source: The pipeline is triggered when a PR is merged into the master branch (this is detected using webhooks through an AWS CodeStar connection).
+Build and [Test]: A docker image is built from the source code, and saved in an ECR repository which is a docker images registry within AWS. Automatic tests may run at this stage if they haven’t run before merging or just as a second check. This stage can use other services like CodeBuild or S3 buckets to build and store artifacts.
+Stage: The new image is deployed into some pre-prod environments to do more QA (e.g., integration tests, end-to-end tests, UI tests). After manual or automatic approval it moves to the production stage.
+Production: The new image is deployed updating the app in ECS. Rolling updates can be used to avoid downtimes.
+Route 53 as the DNS and (optionally) as the domain registrar
+Route53 is the DNS where we add records to point our domain and subdomains to AWS resources. For example, we add a record to point our main domain to our ALB. The domain itself can be registered by Route53 too, or it can be registered in some third-party domain registrar like NameCheap or GoDaddy. If you are using a third-party registrar, then you will have to change the nameserver (NS) records to make Route 53 your DNS.
+
+Serving static assets with CloudFront
+Static assets like .js or .css files are stored in an S3 bucket and served through a Content Distribution Network (CDN) using CloudFront. This allows caching the files close to the client optimizing performance and offloading the application server at the same time. You should make sure that your S3 bucket is private and use an Origin Access Identity to allow access through your CloudFront distribution only.
+
+Keeping your secrets safe with AWS Secrets Manager
+You don’t want to commit API Keys, database credentials, or any sensitive information into your code repository. You may set environment variables directly on your task definitions, but someone could then read their values using the AWS API. Using AWS Secrets Manager the data is stored encrypted in the cloud and it’s injected on run time. You can store data as plain text or as key-value pairs in JSON. We use it to store things like the Django Secret and the database credentials.
+
+Keeping traffic inside your network with VPC endpoints
+When you are using AWS services like S3 or SQS, the default behavior is to access them through the internet. If your app runs in AWS inside a virtual private cloud (VPC) in a private network, then a NAT Gateway is required to access any resource on the internet. NAT GWs are billed per hour and per GB and they can inflate your bill quickly.
+
+So, keeping the traffic inside your VPC you gain in security and performance, but you can also reduce some costs too. As your app is in AWS, there is a way to access those AWS services from your VPC without traversing the internet: VPC Endpoints (fka Private Links). All you need to do is to enable them, per service, at the VPC level, and then any call to those services will be routed internally within the AWS network.
+
+Notice that using VPC endpoints has a cost too, but the prices per hour and data processing are a quarter of the NAT GW prices.
+
+Advanced Architecture Patterns
+Decoupling with queues and workers
+
+You can get this diagram in full-size here
+This architecture pattern allows you to decouple short-lived requests and long-running tasks by adding queues and workers. Everything that takes more than one second can be converted into a task that can be queued to be executed asynchronously on a worker.
+
+Why may I need this?
+Performance efficiency
+Your application instance can handle a limited number of concurrent requests. So you want to process requests as fast as possible to be able to process more requests per second on each instance. Let's say you have some time-consuming code that you execute synchronously during request processing. The more time you add, the fewer requests per second you can handle.
+
+This may also trigger a scale-out event adding more instances to support the higher workload, which will increase the infrastructure costs unnecessary. Adding a queue allows the app instance to delegate the execution of these time-consuming tasks to the workers and continue processing more requests.
+
+Better scalability
+Your main app instances and your workers can scale independently now. A queue in the middle also allows supporting workload spikes without having to scale out and in so often. The workers can scale based on metrics like the number of messages in the queue.
+
+Fault tolerance
+Let's say you call some external API (third-party or another service of your own). If you do it synchronously, as your app gets directly coupled with it, then as soon as the external API goes down your whole app goes down too. Moving the API call into an async task allows you to decouple your app from the external service. The app will just queue the task and will move on.
+
+A worker will pick up the task later and will execute it. In case the API call fails the task can be retried with different strategies until it finally succeeds or until you give up.
+
+Using Celery to implement workers
+Celery in a flexible and reliable implementation of distributed task queues and workers in python. It takes care of the heavy lifting like message delivery, workers execution, disconnections and reconnections, and it comes with some great features like tasks retries with different strategies. It supports several queues, Amazon SQS being one of them, and it comes with a Django integration out of the box.
+
+Using Amazon SQS to implement the queues
+SQS is a fully-managed, highly-available service that provides reliable queues in the cloud. You don’t need to provide resources or manage servers of any kind. There isn’t any limit on the number of messages so the queue can’t get full and the messages are stored in multiple redundant Availability Zones (AZs).
+
+Using modern frontend frameworks and a services-oriented architecture (SOA)
+You may be willing to decouple your frontend and backend and use some modern frontend framework like React or Vue. We will adapt our architecture to support that.
+
+
+You can get this diagram in full-size here
+So, now the Django app will implement a REST API which will be the communication interface with the frontend.
+
+The backend
+
+Our Django app now implements a backend web service serving a REST API. The Django templates layer is not used as the frontend rendering is moved client-side now. You may want to take a look at the django-rest-framework if you choose this architecture.
+
+The frontend
+
+The frontend will be developed and deployed separately now. Again, we use CodePipeline to build and deploy the frontend app. Once the frontend app is built, it’s just a set of static files (html, js, css). So we can store it in a private S3 bucket to be served through CloudFront. A typical pipeline for the frontend could have the following stages:
+
+Source: The pipeline is triggered when new commits are pushed to master at the frontend repo in GitHub.
+Test: Automatic tests are executed before moving forward.
+Build: The react app is built (yarn build) and the bundle (static files) is passed to the next stage.
+Stage: The new bundle is deployed to an S3 bucket in a pre-prod environment to do more QA (e.g., end-to-end tests, UI tests). After manual or automatic approval, it moves to the production stage.
+Production: The new bundle is deployed to an S3 bucket in the production environment. Then the CloudFront distribution is updated and the cache is invalidated to force it to distribute the new version of the app.
+What’s Next?
+It's time to deploy! Check out how to deploy your Django apps in AWS with CDK in my next article.
+
+Thanks for reading!
+

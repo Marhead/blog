@@ -13,17 +13,25 @@ summary: 'Java 진영 대표 프레임워크 Spring Boot 학습 내용 정리 �
 
 다음은 참고 학습 자료들 이다.
 
-## Spring Web
-  - Inflearn의 *김영한* 강사님
-    - [스프링 입문](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%9E%85%EB%AC%B8-%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8/dashboard) 영상
-    - [Youtube](https://www.youtube.com/playlist?list=PLumVmq_uRGHgBrimIp2-7MCnoPUskVMnd)
+## Spring-Core
+
+## Spring-Data
+
+## Spring-Session
+
+## Spring-Security
 
 ## Spring-Batch
   - [Fwantastic](https://www.fwantastic.com/p/spring-batch.html)
   - [Yun Blog](https://cheese10yun.github.io/spring-batch-basic/)
   - [jojoldu Blog](https://jojoldu.tistory.com/category/Spring%20Batch)
 
+## Spring-RestDocs
+
+## Spring-Cloud
+
 ## Spring-Quartz
   - [O! Java](https://ojava.tistory.com/128)
+
 
 를 바탕으로 여러 다양한 인터넷 자료들을 활용하여 학습하였다. 학습한 내용들에 대한 리뷰와 약간의 첨언을 붙이며 학습 및 정리 겸 Spring 카테고리를 개설하였다. 유익한 정보들을 찾아 가길 바란다.

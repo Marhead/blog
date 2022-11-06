@@ -1,0 +1,25 @@
+---
+title: 'AWS - VPC(Virtual Private Cloud)'
+date: 2022-11-02 10:00:00 +0900
+tags: ['AWS', 'INFRASTRUCTURE']
+draft: true
+summary: 'AWS VPC사용법과 이해'
+---
+
+## 서문
+AWS 속 간단한 EC2 
+
+2011년 8월에 처음 출시되었지만, 현재에는 AWS의 거의 모든 서비스가 VPC에 의존적이라고 할 수 있다.
+
+## VPC란?
+
+## VPC 사용 예시
+
+## 기본 VPC 구성 요소
+- VPC
+- Subnet
+- Route Table
+- Internet Gateway
+- DHCP Option Set
+- Network ACL
+- Security Group

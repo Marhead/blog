@@ -45,7 +45,7 @@ export default function Home({ posts }) {
                         >
                           <div key={slug} className="w-full rounded-t md:w-2/3">
                             <Image
-                              src={`/static/images/${image}`}
+                              src={`/static/images/cover/${image}`}
                               width="800"
                               height="600"
                               className="h-full w-full shadow"
@@ -103,7 +103,7 @@ export default function Home({ posts }) {
                             >
                               <Link href={`/blog/${slug}`}>
                                 <Image
-                                  src={`/static/images/${image}`}
+                                  src={`/static/images/cover/${image}`}
                                   width="800"
                                   height="600"
                                   className="h-full w-full rounded-t pb-6"
@@ -159,7 +159,7 @@ export default function Home({ posts }) {
                             >
                               <Link href={`/blog/${slug}`}>
                                 <Image
-                                  src={`/static/images/${image}`}
+                                  src={`/static/images/cover/${image}`}
                                   width="800"
                                   height="600"
                                   className="h-full w-full rounded-t pb-6"
@@ -209,7 +209,7 @@ export default function Home({ posts }) {
                             >
                               <Link href={`/blog/${slug}`}>
                                 <Image
-                                  src={`/static/images/${image}`}
+                                  src={`/static/images/cover/${image}`}
                                   width="800"
                                   height="600"
                                   className="h-full w-full rounded-t pb-6"

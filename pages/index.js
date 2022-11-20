@@ -46,8 +46,8 @@ export default function Home({ posts }) {
                           <div key={slug} className="w-full rounded-t md:w-2/3">
                             <Image
                               src={`/static/images/cover/${image}`}
-                              width="800"
-                              height="600"
+                              layout="fill"
+                              alt="coverpic"
                               className="h-full w-full shadow"
                             />
                           </div>

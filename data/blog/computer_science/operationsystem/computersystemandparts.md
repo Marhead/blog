@@ -1,0 +1,20 @@
+---
+title: '컴퓨터 시스템과 운영체제'
+date: 2022-09-08 13:30:00 +0900
+tags: ['OPERATIONSYSTEM', 'COMPUTER-SCIENCE']
+draft: false
+summary: ''
+image: 'programming-desk-2.jpg'
+---
+
+# 컴퓨터 시스템과 구조
+
+## 컴퓨터의 기본 구성
+
+## CPU와 메모리
+
+## 컴퓨터 성능 향상 기술
+
+## 병렬 처리
+
+## 무어의 법칙과 암달의 법칙

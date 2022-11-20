@@ -28,7 +28,8 @@ export default function Home({ posts }) {
       </div>
       <div className="flex h-full overflow-hidden rounded bg-white dark:bg-gray-900">
         <a className="position: relative flex flex-wrap no-underline hover:no-underline">
-          <div className="mx-0 sm:mx-6">
+          <div className="">
+          {/*<div className="mx-0 sm:mx-6">*/}
             <div className="w-full rounded-t bg-white text-xl leading-normal text-gray-800 dark:bg-gray-900 md:text-2xl">
               {!posts.length && 'no posts found.'}
               {posts.slice(0, 1).map((frontMatter, indexCount) => {
@@ -39,14 +40,15 @@ export default function Home({ posts }) {
                       <div className="flex overflow-hidden rounded bg-white shadow-lg">
                         <Link
                           href={`/blog/${slug}`}
-                          className="flex flex-wrap no-underline hover:no-underline"
+                          className="flex flex-wrap w-full no-underline hover:no-underline"
                         >
-                          <div key={slug} className="w-full rounded-t md:w-2/3">
+                          <div key={slug} className="position: relative w-full rounded-t md:w-2/3">
                             <Image
                               src={`/static/images/cover/${image}`}
-                              width="800"
+                              alt="coverimage"
+                              layout="fill"
                               height="600"
-                              className="h-full w-full shadow"
+                              className="object-cover h-full w-full shadow"
                             />
                           </div>
                           <div className="flex w-full flex-shrink flex-grow flex-col bg-gray-100 md:w-1/3">

@@ -5,7 +5,6 @@ import siteMetadata from '@/data/siteMetadata'
 import Image from '@/components/Image'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
-import { slug } from 'github-slugger'
 
 const MAX_DISPLAY = 11
 
@@ -48,7 +47,6 @@ export default function Home({ posts }) {
                               src={`/static/images/cover/${image}`}
                               width="800"
                               height="600"
-                              alt="coverpic"
                               className="h-full w-full shadow"
                             />
                           </div>

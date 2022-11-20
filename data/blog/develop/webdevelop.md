@@ -1,7 +1,7 @@
 ---
 title: '내멋대로 정리한 웹 기술의 흐름'
 date: 2022-11-20 16:00:00 +0900
-tag: ['WEB', 'MISCELLANEOUS']
+tags: ['WEB', 'MISCELLANEOUS']
 draft: false
 summary: '프론트 기술 스택을 공부하며 내멋대로 정리해본 웹 기술에 대한 게시글. 매우 주관적으로 정리'
 image: 'programming-screen-1.jpg'

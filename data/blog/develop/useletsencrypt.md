@@ -2,8 +2,9 @@
 title: 'Lets encrypt를 활용하여 https 적용 과정'
 date: 2022-10-10 21:00:00 +0900
 tags: ['WEB', 'DEVOPS']
-draft: true
+draft: false
 summary: 'Lets encrypt 적용 과정 설명과 이해, 실 적용 방법을 정리한 글'
+image: 'programming-desk-3.jpg'
 ---
 
 Let's encrypt란 ~~~한 프로그램이다.

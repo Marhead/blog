@@ -32,16 +32,16 @@ export default function Home({ posts }) {
             {/*<div className="mx-0 sm:mx-6">*/}
             {!posts.length && 'no posts found.'}
             {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
-              const { slug, date, title, summary, tags } = frontMatter
+              const { slug, date, title, summary, tags, cover } = frontMatter
               return (
                 <article className="py-2" key={slug}>
                   <div className="card h-full rounded-bl-md rounded-br-md bg-slate-50 transition hover:drop-shadow dark:bg-zinc-800">
                     <div className="space-y-5 xl:col-span-3">
                       <div className="space-y-6">
                         <div className="relative h-64 w-full lg:h-48 lg:w-full">
-                          <a href={'/blog/${slug}'}>
+                          <a href={`/blog/${slug}`}>
                             <Image
-                              src={'/static/images/cover/programming-desk-1.jpg'}
+                              src={`/static/images/cover/${cover}`}
                               alt="cardcoverimage"
                               layout="fill"
                             />
@@ -56,7 +56,7 @@ export default function Home({ posts }) {
                           <div className="text-xs text-gray-700 dark:text-gray-300">
                             <time dateTime={date}>{formatDate(date)}</time>
                           </div>
-                          <a className="dark:text-secondary-400 dark:hover:text-secondary-500 rounded-md bg-slate-100 px-3 py-1 text-xs leading-5 text-primary-500 no-underline hover:text-primary-600 dark:bg-neutral-700">
+                          <a className="">
                             {tags.slice(0, 1).map((tag) => (
                               <Tag key={tag} text={tag} />
                             ))}

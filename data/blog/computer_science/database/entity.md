@@ -4,7 +4,7 @@ date: 2022-09-01 12:00:00 +0900
 tags: ['COMPUTER-SCIENCE', 'DATABASE']
 draft: false
 summary: 'SQLp 혹은 SQLd 학습내용 중에 등장하는 DataBase entity에 관한 기초 내용들 정리'
-image: 'bank-safe-1.jpg'
+cover: 'bank-safe-1.jpg'
 ---
 
 # DB_Entity

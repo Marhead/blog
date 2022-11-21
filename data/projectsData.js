@@ -3,7 +3,7 @@ const projectsData = [
     title: '중앙적성연구소 ',
     description: '처음으로 의뢰를 수주받아 진행한 외주 프로젝트. .NET Framework와 WPF를 활용하여 윈도우 로컬에서 작동하는 엑셀 자동 정리 프로그램 제작.',
     imgSrc: '',
-    href: '',
+    href: 'https://github.com/Marhead/CentralAptitudeTest',
   },
   {
     title: 'Codi 코디',
@@ -21,7 +21,7 @@ const projectsData = [
     title: 'Algorithm Study',
     description: '다양한 알고리즘들에 대해 탐색하고 학습하여 더욱 효율적인 프로그램 코드 작성을 위한 스터디 프로젝트. C++부터 Java, Python등 다양한 언어를 활용하여 다양한 경우의 문제 해결법을 학습하였다.',
     imgSrc: '',
-    href: '',
+    href: 'https://github.com/HumanHyeon/Algorithm_Book',
   },
 ]
 

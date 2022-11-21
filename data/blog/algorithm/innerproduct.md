@@ -4,7 +4,7 @@ date: 2021-01-07 16:00:00 +0900
 tags: ['PROBLEM-SOLVING', 'PYTHON', 'PROGRAMMERS']
 draft: false
 summary: '프로그래머스 월간 코드 챌린지 시즌 1 [내적] 문제 해결'
-image: 'algorithm-flow-1.jpg'
+cover: 'algorithm-flow-1.jpg'
 ---
 ## 📖문제 설명
 ---

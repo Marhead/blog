@@ -4,6 +4,7 @@ date: 2022-08-31 17:00:00 +0900
 tags: ['MISCELLANEOUS']
 draft: false
 summary: 'Windows에서 낭비되고 있는 리스닝 포트를 종료하는 방법을 정리한 문서. IT주변 용어/상식/정보 정리 문서'
+cover: ""
 ---
 
 # 윈도우에서 Port kill 하는 방법

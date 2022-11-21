@@ -4,6 +4,7 @@ date: 2021-01-31 12:00:00 +0900
 tags: ['ESSAY', 'REVIEW-MY-SELF']
 draft: false
 summary: '1월의 끝을 앞에 두고 마지막 2021년 다짐을 정리'
+cover: ""
 ---
 어느 덧 2021년 1월의 마지막 날이다. 새해의 첫달이 끝났다.
 

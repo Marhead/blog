@@ -4,6 +4,7 @@ date: 2021-02-20 03:55:00 +0900
 tags: ['MACHINE-LEARNING', 'PYTHON']
 draft: false
 summary: "Sung Kim's PyTorch Lecture 01 review, 성킴 교수님의 머신러닝 강의 리뷰"
+cover: ""
 ---
 
 다음은 머신 러닝 학습을 위하여 참고한 성킴(김성훈) 교수님의 첫번째 강의이다. 

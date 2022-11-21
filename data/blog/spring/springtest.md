@@ -4,7 +4,7 @@ date: 2022-11-02 09:00:00 +0900
 tags: ['SPRING', 'TEST']
 draft: True
 summary: 'Spring Boot의 Test환경에 대하여 정리한 글'
-image: 'spring.png'
+cover: 'spring.png'
 ---
 
 # Spring Test

@@ -4,7 +4,7 @@ date: 2022-11-17 02:00:00 +0900
 tags: ['DATABASE']
 draft: false
 summary: '현대 존재하는 다양한 데이터베이스 종류들에 대하여 대략적으로 정리한 글'
-image: 'bank-safe-1.jpg'
+cover: 'bank-safe-1.jpg'
 ---
 
 1. Relational Database

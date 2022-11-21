@@ -4,7 +4,7 @@ date: 2021-01-24 16:00:00 +0900
 tags: ['PROBLEM-SOLVING', 'C++', 'PYTHON', 'PROGRAMMERS', 'KAKAO']
 draft: false
 summary: '프로그래머스 2018 카카오 블라인드 [비밀지도] 문제 해결'
-image: 'algorithm-flow-1.jpg'
+cover: 'algorithm-flow-1.jpg'
 ---
 
 ## 📖문제 설명

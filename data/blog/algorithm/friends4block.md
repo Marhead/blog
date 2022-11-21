@@ -4,7 +4,7 @@ date: 2021-01-30 01:00:00 +0900
 tags: ['PROBLEM-SOLVING', 'C++', 'PROGRAMMERS', 'KAKAO']
 draft: false
 summary: '프로그래머스 2018 카카오 블라인드 [프렌즈 4 블록] 문제 해결'
-image: 'algorithm-flow-1.jpg'
+cover: 'algorithm-flow-1.jpg'
 ---
 
 ## 📖문제 설명

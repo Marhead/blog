@@ -4,7 +4,7 @@ date: 2022-09-08 13:30:00 +0900
 tags: ['OPERATIONSYSTEM', 'COMPUTER-SCIENCE']
 draft: false
 summary: ''
-image: 'programming-desk-2.jpg'
+cover: 'programming-desk-2.jpg'
 ---
 
 # 컴퓨터 시스템과 구조

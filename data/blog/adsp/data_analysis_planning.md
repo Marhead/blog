@@ -4,7 +4,7 @@ date: 2022-09-08 12:00:00 +0900
 tags: ['LICENSE']
 draft: false
 summary: '데이터 분석 준전문가 자격증 취득을 위한 학습 내용 중 Part 2, 2장 1절 데이터 분석 기획의 이해 챕터 정리 내용'
-image: 'adsp.png'
+cover: 'adsp.png'
 ---
 ## 분석 기획의 특징
 

@@ -4,6 +4,7 @@ date: 2021-01-19 15:00:00 +0900
 tags: ['MACHINE-LEARNING', 'PYTHON']
 draft: false
 summary: '밑바닥부터 시작하는 딥러닝 Chapter 02 review'
+cover: ""
 ---
 # 퍼셉트론 알고리즘(Perceptron Algorithm)
 ---

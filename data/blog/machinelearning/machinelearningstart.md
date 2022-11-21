@@ -4,6 +4,7 @@ date: 2021-01-15 23:00:00 +0900
 tags: ['MACHINE-LEARNING', 'PYTHON']
 draft: false
 summary: '머신러닝을 공부하고 정리한 글을 올릴 포스트들에 대한 서문'
+cover: ""
 ---
 ## 서문
 ---

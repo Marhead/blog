@@ -4,7 +4,7 @@ date: 2022-09-16 14:00:00 +0900
 tags: ['COMPUTER-SCIENCE', 'AUTOMATA']
 draft: false
 summary: '오토마타 이론의 핵심 3가지 개념, Languages, Grammar, And Automata에 관하여 정리한 글'
-image: 'automata.jpg'
+cover: 'automata.jpg'
 ---
 
 # Three Basic Concepts

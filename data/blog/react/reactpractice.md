@@ -99,9 +99,9 @@ const person = { name, age, designation, workingHours };
 
 여기까지는 자바 스크립트에 대해 다양한 코드적 규범에 대한 설명이였다. 위와 같이 ES6 문법에 대해 다양한 기능과 활용성을 볼 수 있다.
 
-### Don't Forget key Prop With map in JSX
+### JSX를 사용할 때 반드시 key값 맵핑하기
 
-Always assign a unique value to the key prop to every JSX element while mapping from an array. Read official docs for better understanding
+배열에 값을 매핑할 때, 항상 unique한 값을 각각의 JSX 원소들에게 할당해 주어야 한다. 최대한 풀어서 설명한다고는 했지만, 부족하다면 공식 문서를 참고하면 더욱 자세한 설명을 읽을 수 있다.
 
 ```javascript
 const students = [{id: 1, name: 'Bilal'}, {id: 2, name: 'Haris'}];
@@ -114,7 +114,7 @@ const students = [{id: 1, name: 'Bilal'}, {id: 2, name: 'Haris'}];
 </ul>;
 ```
 
-### 컴포넌트 이름은 파스칼 케이스로 짓기
+### 컴포넌트 이름은 파스칼 케이스(PascalCase)로 짓기
 
 ```javascript
 const helloText = () => <div>Hello</div>; // wrong
@@ -122,33 +122,32 @@ const helloText = () => <div>Hello</div>; // wrong
 const HelloText = () => <div>Hello</div>; // correct
 ```
 
-### Variable & Function Names Should be in camelCase
+### 변수와 함수 이름은 카멜 케이스(camelCase)로 짓기
 
 ```javascript
-const working_hours = 10; // bad approach
+const working_hours = 10; // 비추천 사례
 
-const workingHours = 10; // good approach
+const workingHours = 10; // 추천 사례
 
-const get_sum = (a, b) => a + b; // bad approach
+const get_sum = (a, b) => a + b; // 비추천 사례
 
-const getSum = (a, b) => a + b; // good approach
+const getSum = (a, b) => a + b; // 추천 사례
 ```
 
-### ID & Class Names Should be in kebab-case
+### ID와 클라스 이름은 케밥 케이스(kebab-case)로 짓기
 
 ```javascript
-<!--bad approach-->
+<!--비추천 사례-->
 <div className="hello_word" id="hello_world">Hello World</div>
 
-<!--good approach -->
+<!--추천 사례 -->
 <div className="hello-word" id="hello-world">Hello World</div>
 ```
 
-### Always Check null & undefined for Objects & Arrays
+### 객체와 배열의 null값과 undefined값 항상 확인하기
 
-Neglecting null and undefined in the case of objects & arrays can lead to errors.
+개체 및 배열의 경우 null 및 undefined를 무시하면 오류가 발생할 수 있다. 그러니 항상 코드에서 유효성겁사를 하자.
 
-So, always check for them in your code
 ```javascript
 const person = {
   name: "Haris",
@@ -164,17 +163,17 @@ console.log(oddNumbers.length ? oddNumbers.length : "Array is undefined"); // co
 console.log(oddNumbers.length ?? "Array is undefined"); // correct
 ```
 
-### Avoid Inline Styling
+### 인라인 스타일링(Inline Styling)은 피하자
 
-Inline styling makes your JSX code messy. It is good to use classes & ids for styling in a separate .css file
+인라인 스타일리은 JSX코드를 지저분하게 보이게 한다. 별도의 .css.파일에서 클라스와 아이디를 통하여 스타일링 하도록 하자.
 
 ```javascript
-const text = <div style={{ fontWeight: "bold" }}>Happy Learing!</div>; // bad approach
+const text = <div style={{ fontWeight: "bold" }}>Happy Learing!</div>; // 비추천 사례
 
-const text = <div className="learning-text">Happy Learing!</div>; // good approach
+const text = <div className="learning-text">Happy Learing!</div>; // 추천 사례
 ```
 
-in .css file:
+``.css`` 파일 양식:
 
 ```javascript
 .learning-text {
@@ -182,28 +181,25 @@ in .css file:
 }
 ```
 
-### Avoid DOM Manipulation
+### 직접적인 DOM 조작은 피하기
 
-Try to use React state instead of DOM manipulation as
+직접적인 DOM 조작 보다는 React State를 활용하자.
 
-Bad approach
 ```javascript
+// 비추천 사례
 <div id="error-msg">Please enter a valid value</div>
 document.getElementById("error-msg").visibility = visible;
-```
 
-Good approach
-
-```javascript
+//추천 사례
 const [isValid, setIsValid] = useState(false);
 
 <div hidden={isValid}>Please enter a valid value</div>;
 Set isValid false or true where you have logic of validating a value
 ```
 
-### Always Remove Every Event Listener in useEffect
+### useEffect() 사용시 EventListner 항상 지우기
 
-Don't forget to write cleanup function in useEffect to remove event listener you added before
+이전에 추가한 ``EventListner``를 제거하기 위해 ``useEffect``에 정리 함수 작성을 잊지 말자!
 
 ```javascript
 const printHello = () => console.log("HELLO");
@@ -213,9 +209,9 @@ useEffect(() => {
 });
 ```
 
-### Avoid Repetition, Use Generic Components
+### 반복을 피하고 Generic 컴포넌츠를 활용하자
 
-It is the best thing to make your code cleaner. Write a generic component for similar group of elements and render them on the basis of ``props`` passed to it
+Generic 컴포넌트를 비슷한 그룹의 elements를 랜더링 하고 ``props``로 넘겨주기에 더욱 추천한다.
 
 ```javascript
 const Input=(props)=>{
@@ -227,7 +223,7 @@ const Input=(props)=>{
 }
 ```
 
-In other component you can use Input component as
+또다른 예시로, Input 컴포넌트는 아래와 같이 표현할 수 있다.
 
 ```javascript
 <div>
@@ -236,30 +232,29 @@ In other component you can use Input component as
 </div>
 ```
 
-### Don’t Throw Your Files Randomly
+### 파일을 아무렇게나 넣지 말자
 
-Keep the related files in the same folder instead of making files in a single folder.
+연관 파일끼리는 최대한 하나의 폴더에 담을 수 있도록 한다.
 
-For example, if you want to create a navbar in React then you should create a folder and place .js & .css files related to the navbar in it
+예를들어, 네비게이션 바를 만들고 싶다면, 네비게이션 바 폴더를 만들고 관려된 ``.js``, ``.css``파일들을 전부 넣도록 하자.
 
-### Functional Components Are Recommended
+### 함수형 컴포넌트를 추천
 
-If you want to render some elements and don't need to use state then use functional components instead of class components because functional components are easy to use.
+상태를 관리할 필요 없는 정적 elements를 렌더링하고 싶을 경우, 함수형 컴포넌트가 더욱 간단하다. 특히, 객체형 컴포넌트보다 더욱 간단해서 많이들 사용한다.
 
-Moreover, if you have an idea of React Hooks, then with functional components you can easily play with the state too.
+React 훅에 관련된 컴포넌트일 경우, 함수형 컴포넌트를 통해서도 충분히 상태를 관리할 수 있다.
 
-### Create a Habit of Writing Helper Functions
+### 헬퍼 함수를 작성하는 습관을 들이자
 
-Sometimes you need a utility at more than one time across your React App.
+가끔 React 앱 전반에서 한번 이상 utility를 호출해야 할 때가 있다.
+그럴때 효과적으로 대응하기 위해, helper 함수를 별도의 파일로 구분하여 작성해 두면, 원할 때 언제든 편하게 불러 호출할 수 있다.
 
-To deal with this scenario efficiently, Write a helper function in a separated file named helper-functions.js, import wherever you want to use it and call that function in it.
+### ``if/else``문 대신 삼항연산자 추천
 
-### Use Ternary Operator Instead of if/else if Statements
-
-Using ``if/else`` if statements makes your code bulky. Instead try to use ternary operator where possible to make code simpler & cleaner
+if문을 사용하게 되면 코드의 부피가 커지게 된다. 대신 삼항연산자를 최대한 활용할 경우 코드를 더욱 간단하고 깔금하게 한다.
 
 ```javascript
-// Bad approach
+// 비추천 사례
 if (name === "Ali") {
   return 1;
 } else if (name === "Bilal") {
@@ -268,30 +263,32 @@ if (name === "Ali") {
   return 3;
 }
 
-// Good approach
+// 추천 사례
 name === "Ali" ? 1 : name === "Bilal" ? 2 : 3;
 ```
 
-### Make index.js File Name to Minimize Importing Complexity
+### import 복잡성을 최소화 하기 위해 index.js 파일 만들기
 
-If you have a file named index.js in a directory named actions and you want to import action from it in your component, your import would be like this
+``import``를 할 때의 코드를 단순화 시키기 위해 각 폴더에 index.js라는 파일을 만들면 다음과 같은 구문으로 ``action``을 가져올 수 있다.
 
 ```javascript
+// 추천 사례
 import { actionName } from "src/redux/actions";
 ```
 
-actions directory path is explained in the above import . Here you don't need to mention index.js after actions like this
+``action`` 경로는 위의 가져오기에 설명되어 있듯, 아래의 평서 import문과 같이 index를 불러오지 않아도 된다.
 
 ```javascript
+// 비추천 사례
 import { actionName } from "src/redux/actions/index";
 ```
 
-### Destructuring of Props
+### 속성내부 값 읽어오기
 
-If you want to get rid of writing an object name again and again to access its properties, then destructuring of that object is the best solution for you.
-Suppose your component is receiving some values like name, age and designation as props
+한 속성 내부에 접근하여 여러 값들을 불러오려고 할 때, 속성 자체를 완전 분해하여 각 변수들을 반환하도록 하자.
+
 ```javascript
-// Bad approach
+// 비추천 사례
 const Details = (props) => {
   return (
     <div>
@@ -302,7 +299,7 @@ const Details = (props) => {
   );
 };
 
-// Good approach
+// 추천 사례
 const Details = ({ name, age, designation }) => {
   return (
     <div>
@@ -314,9 +311,9 @@ const Details = ({ name, age, designation }) => {
 };
 ```
 
-## Don't Try to Access Modified State Variable in the Same Function
+## 동일한 함수에서 수정된 상태 변수에 접근하려 하지 말자
 
-In a function, if you are assigning a value to a state variable then you won't be able to access that assigned value even after it has been assigned in that function
+함수 내부에서, 한번 상태 변수에 값을 할당한 뒤에는, 다시 상태변수에 접근하지 말자.
 
 ```javascript
 const Message = () => {
@@ -330,13 +327,13 @@ const Message = () => {
 };
 ```
 
-### Use === Operator instead of ==
+### ``==`` 대신 ``===`` 사용하기
 
-While comparing two values, strictly checking both values and their data types is a good practice.
+두 변수를 비교하려 할 때, 엄격하게 두 값에 대한 데이터 타입과 값을 비교하는 것이 좋다.
 
 ```javascript
 "2" == 2 ? true : false; // true
 "2" === 2 ? true : false; // false
 ```
 
-Now get your hands dirty with these best coding practices in React!
+위 관습들을 참고해서 즐거운 개발 생활을 헤쳐나가길 바란다!

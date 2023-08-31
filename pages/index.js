@@ -5,6 +5,7 @@ import siteMetadata from '@/data/siteMetadata'
 import Image from '@/components/Image'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
+import Skills from "@/components/Skills";
 
 const MAX_DISPLAY = 21
 
@@ -27,6 +28,7 @@ export default function Home({ posts }) {
             {siteMetadata.description}
           </p>
         </div>
+        <Skills/>
         <div className="flex h-full overflow-hidden rounded bg-white dark:bg-gray-900">
           <div className="grid grid-cols-1 gap-4 py-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
             {/*<div className="mx-0 sm:mx-6">*/}
@@ -39,13 +41,13 @@ export default function Home({ posts }) {
                     <div className="space-y-5 xl:col-span-3">
                       <div className="space-y-6">
                         <div className="relative h-64 w-full lg:h-48 lg:w-full">
-                          <a href={`/blog/${slug}`}>
+                          <Link href={`/blog/${slug}`}>
                             <Image
                               src={`/static/images/cover/${cover}`}
                               alt="cardcoverimage"
                               layout="fill"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <h2 className="px-4 text-lg leading-8 tracking-tight lg:h-24 lg:overflow-y-hidden">
                           <Link href={`/blog/${slug}`} className="text-gray-900 dark:text-gray-100">

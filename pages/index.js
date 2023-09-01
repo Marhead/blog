@@ -5,7 +5,8 @@ import siteMetadata from '@/data/siteMetadata'
 import Image from '@/components/Image'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
-import Skills from "@/components/Skills";
+import Skills from '@/components/Skills'
+import RecentProjects from "@/components/RecentProjects";
 
 const MAX_DISPLAY = 21
 
@@ -22,13 +23,14 @@ export default function Home({ posts }) {
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Welcome to my Blog!
+            Welcome to Hoone's den!
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
             {siteMetadata.description}
           </p>
         </div>
-        <Skills/>
+        <Skills />
+        <RecentProjects MAX_PROJECTS="4" />
         <div className="flex h-full overflow-hidden rounded bg-white dark:bg-gray-900">
           <div className="grid grid-cols-1 gap-4 py-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
             {/*<div className="mx-0 sm:mx-6">*/}
@@ -58,11 +60,11 @@ export default function Home({ posts }) {
                           <div className="text-xs text-gray-700 dark:text-gray-300">
                             <time dateTime={date}>{formatDate(date)}</time>
                           </div>
-                          <a className="">
+                          <div className="">
                             {tags.slice(0, 1).map((tag) => (
                               <Tag key={tag} text={tag} />
                             ))}
-                          </a>
+                          </div>
                         </div>
                       </div>
                     </div>

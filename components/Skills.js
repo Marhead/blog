@@ -1,18 +1,18 @@
 /* eslint-disable prettier/prettier */
 import {
   SiReact,
-  SiHtml5,
-  SiCss3,
   SiJavascript,
   SiTypescript,
   SiNextdotjs,
   SiNodedotjs,
-  SiPostgresql,
+  SiDocker,
   SiTailwindcss,
-  SiRedux,
-  SiFirebase,
-  SiGit,
-} from 'react-icons/si'
+  SiAmazonaws,
+  SiDjango,
+  SiPython,
+  SiSpring,
+  SiDotnet
+} from "react-icons/si";
 
 import { motion } from 'framer-motion'
 import { showHoverAnimation, removeHoverAnimation } from '../lib/windowAnimation'
@@ -20,20 +20,36 @@ import { FadeContainer, popUp } from '../lib/FramerMotionVariants'
 
 const skills = [
   {
-    name: 'TypeScript',
-    logo: SiTypescript,
+    name: 'Python',
+    logo: SiPython,
   },
   {
-    name: 'HTML',
-    logo: SiHtml5,
+    name: 'AWS',
+    logo: SiAmazonaws,
   },
   {
-    name: 'CSS',
-    logo: SiCss3,
+    name: 'Django',
+    logo: SiDjango,
+  },
+  {
+    name: 'Docker',
+    logo: SiDocker,
+  },
+  {
+    name: 'Spring',
+    logo: SiSpring,
+  },
+  {
+    name: '.NET',
+    logo: SiDotnet,
   },
   {
     name: 'JavaScript',
     logo: SiJavascript,
+  },
+  {
+    name: 'TypeScript',
+    logo: SiTypescript,
   },
   {
     name: 'React',
@@ -51,29 +67,12 @@ const skills = [
     name: 'Node.js',
     logo: SiNodedotjs,
   },
-  {
-    name: 'PostgreSQL',
-    logo: SiPostgresql,
-  },
-  {
-    name: 'Redux',
-    logo: SiRedux,
-  },
-
-  {
-    name: 'Firebase',
-    logo: SiFirebase,
-  },
-  {
-    name: 'Git',
-    logo: SiGit,
-  },
 ]
 
 const Skills = () => {
   return (
     <>
-      <span className="font-poppins title-font text-3xl font-bold">My Top Skills</span>
+      <span className="font-poppins title-font text-3xl font-bold pt-3">My Favorite Skills</span>
       <motion.div
         initial="hidden"
         whileInView="visible"

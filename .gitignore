@@ -45,3 +45,9 @@ yarn-error.log*
 
 # Contentlayer
 .contentlayer
+
+.husky/pre-commit
+.idea
+.vscode
+.yarn
+.yarnrc.yml

@@ -21,7 +21,6 @@ summary: 내가 사용한 Django 사람들에게 소개하기
 위 3가지 특징 뿐 아니라 다양한 특징과 장점도 있지만, 당시 스타트업 시작 초기에 내가 고려했던 핵심 사항들은 저것들이 대부분 이였다. 나에게 유용했던 장고가 다른 사람에게도 유용한 도구가 되길 바라며, 장고의 사용법들을 정리해보고자 한다. 본격적인 장고의 소개에 앞서 장고가 추구하는 소프트웨어-아키텍처, MVT 패턴부터 살펴보자.
 
 # MVT Pattern
-
 MVT Pattern은 소프트웨어 설계 패턴 중 하나로, **M** (Model) - **V** (View) - **T** (Template)의 약자를 따서 만든 줄임말이다. 상호 연결된 3가지 요소로 프로그램의 로직을 *구분*하여 개발하는 MVC Pattern을 응용한 구조이다. MVC Pattern 과의 정확한 차이점으로는, 기존의 MVC Pattern의 URL 라우팅은 Controller 단에서 처리하지만, 장고 프레임워크의 MVT Pattern은 프레임워크 자체에서 처리(URL Conf 기능 활용)한다.
 
 파이썬으로 코딩한 모델을 관계형 데이터베이스로 구축해주는 모델(Model), URL의 라우팅을 통해 들어온 Request를 연결하는 뷰(View), HTTP 요청을 처리하는 웹 템플릿 시스템인 템플릿 (Template)으로 구성된 MVT 디자인 패턴을 따른다.
@@ -30,7 +29,7 @@ MVT Pattern은 소프트웨어 설계 패턴 중 하나로, **M** (Model) - **V*
 
 ![architecture](/static/django/django-architecture.png)
 
-위 플로우 차트의 흐름을 가장 왼편의 Client의 Request 부터 순서대로 설명하자면,
+위 플로우 차트는 가장 왼편의 Client의 Request 부터 시작한다. 서버 안에서의 프레임워크 작업을 처음부터 순서대로 설명하자면,
 
 1. Client의 Request가 서버로 들어온다.
 2. Request를 접수한 서버는 Django의 URL Conf를 이용하여 URL을 해석한다.
@@ -39,14 +38,103 @@ MVT Pattern은 소프트웨어 설계 패턴 중 하나로, **M** (Model) - **V*
 5. View의 로직 처리가 끝나면, Template을 활용하여 Client에게 전송할 Response(대개, HTML or JSON) 파일을 생성한다.
 6. View는 최종결과를 Client에게 Response 한다.
 
-
-
+장고 프레임워크의 전체적인 흐름은 이렇게 돌아가지만, 각 요소의 세부적인 동작방식을 플로우차트 만으로 이해하기는 쉽지 않다. Client의 Request를 수신하는 URL Conf 부터 장고 프레임워크의 요소들을 흐름대로 하나씩 살펴보자.
 
 # URL Conf
+장고는 앞서 설명했듯 자체적으로 URL을 매핑 처리해주는 기능이 내장되어 있다. 장고 프레임워크의 설정을 다루는 ``setting.py`` 파일에서 ``ROOT_URLCONF``의 설정값이 URLconf를 담당하는 파일이다. 주로 메인 프로젝트 설정 폴더 아래 `urls.py` 파일로 자동 정의되어 있다. `urls.py` 파일의 모습을 살펴보자면 대략 다음과 같다.
+
+```python
+from django.urls import path
+ 
+from . import views
+
+urlpatterns = [
+    path('articles/2003/', views.special_case_2003),
+    path('articles/<int:year>', views.year_archive),
+    path('articles/<int:year>/<int:month>/', views.month_archive),
+    path('articles/<int:year>/<int:month>/<slug:slug>', views.article_detail),
+]
+```
+
+`urls.py` 파일 속 `urlpatterns`라는 변수명의 list에 미리 설정해둔 url들이 `views` 파일에 있는 메서드들과 바인드 되어있다. url은 `<TYPE:NAME>` 형식으로 설정하여 URL 패턴의 일부 문자열을 추출할 수 있다.
+
+Web Client가 우리들의 장고-서버에 Request를 보낼 때, 장고에서 URL을 분석하는 순서를 요약하면 다음과 같다
+- `setting.py` 파일의 `ROOT_URLCONF` 항목을 읽어 최상위 `URLconf(urls.py)`의 위치를 알아냄
+- `URLconf`를 로딩하여 `urlpatterns` 변수에 지정되어 있는 URL list를 검사
+- 위에서부터 순서대로 URL list의 내용을 검사하면서 URL pattern이 매치되면 검사를 종료함
+- 매치된 URL의 `View`를 호출함
+- 호출 시 `HttpRequest 객체`와 `매칭할 때 추출된 단어들`을 View에 인자로 넘겨줌
+- URL 리스트 끝까지 검사했는데도 매칭에 실패하면 Error-Handling-View를 호출
+
+
 
 # View
+일반적으로 View는 Web Request을 받아서 DB 접속 등 해당 서버의 로직에 맞는 처리를 하고, 그 결과 데이터를 HTML로 변환하기 위하여 템플릿 처리(Template 활용)를 한 후에 최종 HTML로 된 Response 데이터를 Web Client로 반환하는 역할을 한다.
+
+장고에서 View는 함수 또는 클래스의 메소드로 작성되며, Web Request를 받고 Response를 반환해준다. 다양한 형태의 Response 데이터를 만들어 내기 위한 로직을 View에 작성하는 것인데, 이러한 View는 보통 `views.py` 파일에 작성하지만 원한다면 다른 파일에 작성하고 ``urls.py``에서 바인딩해도 무방하다.
+
+간단한 예시로, 현재 날짜와 시간을 HTML로 반환해주는 View코드를 보자.
+
+```python
+from django.http import HttpResponse
+import datetime
+
+def current_datetime(request):
+  now = datetime.datetime.now();
+  html = "<html><body>It is now %s</body></html>" % now
+  return HttpResponse(html)
+```
+
+이 경우 클래스가 아니라 함수로 View를 작성한 예시이다. View 함수는 첫번째 인자로 HttpRequest 객체를 받는다. 그리고 필요한 처리를 한 후에 최종적으로 HttpResponse 객체를 반환해준다.
+
+위의 예시에서는 HTML태그를 View 함수 내에 직접 작성하였지만, 보통은 별도의 Template 파일에 HTML태그를 작성한다. 즉, View는 별도로 작성된 Template 파일을 해석해서 HTML 태그를 생성하고 이를 HttpResponse 객체에 담아서 Client에게 응답한다.
 
 # Model
+Model은 장고 프레임워크의 추가적인 메타데이터가 포함된 기본적인 데이터베이스 레이아웃이다. 장고 공식 문서에서 설명하는 Model을 조금 더 해석해 보자면, 내 데이터에 대한 확실한 단일 정보원(정보의 근원)이라고 한다. 즉, 다른 데이터들과 구분되는 하나의 데이터에 대한 형식을 정의한 것을 장고의 Model 이라고 한다.
+
+Model에 대한 대략적인 코드는 다음과 같다.
+
+```python
+from django.db import models
+
+
+class Question(models.Model):
+    question_text = models.CharField(max_length=200)
+    pub_date = models.DateTimeField("date published")
+
+
+class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    choice_text = models.CharField(max_length=200)
+    votes = models.IntegerField(default=0)
+```
+
+장고 내부에 미리 정의된 `django.db.models` 객체를 상속받아 개인이 원하는 자신의 Model을 만들어 낼 수 있다. Model 객체 내부에는 위 코드에서도 보듯 `CharField()`, `DateTimeField()`, `IntegerField()`
 
 # Template
+서버가 client에 반환하는 최종 response는 기본적으로 HTML이다. 개발자가 응답에 사용할 *.html 파일을 작성하면, 장고는 이를 해석해서 최종 HTML 텍스트 응답을 생성하고, 이를 client에게 보내준다.
 
+Template 파일은 *.html 확장자를 가지며, 장고의 Template 시스템 문법에 맞게 작성한다. 유의할 점은 Template 파일을 적절한 디렉토리에 위치시켜야 한다는 점이다. 즉, 장고에서 Template 파일을 찾는 방식을 이해하고 있어야하며, 장고는 그에 맞는 위치에 Template 파일이 위치해야 Template 파일을 찾을 수 있다.
+
+장고에서 Template 파일을 찾을 때는 `settings.py`에 설정된 TEMPLATE_DIRS 및 INSTALLED_APPS에서 지정된 앱의 디렉토리를 검색한다. 여러개의 디렉토리를 지정할 수 있는데, 지정된 순서대로 디렉토리를 검색하여 Template 파일을 찾는다.
+
+```python
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Home page</title>
+</head>
+<body>
+  {% if youngest_teams %}
+    <ul>
+      {% for team in youngest_teams %}
+        <li>{{ team.team_name }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No teams are available.</p>
+  {% endif %}
+</body>
+</html>
+```

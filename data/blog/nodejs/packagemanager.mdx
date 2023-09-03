@@ -1,0 +1,23 @@
+---
+title: 'nodejs package manager - npm 알아보기'
+date: 2022-08-01 21:00:00
+tags: ['javascript', 'nodejs']
+draft: true
+layout: PostBanner
+images: ['/static/django/django-logo.png']
+summary: 내가 사용한 Django 사람들에게 소개하기
+---
+
+
+npx로 프로젝트 다운받기
+📌 버전 관리가 없는 새로운 프로젝트를 다운로드 받는 것과 같다.
+
+npx degit 계정이름/저장소이름 다운받을경로
+```shell
+$ npx degit kim-siot/repositoryname directory
+```
+*npx : degit을 설치하지 않고도 사용할 수 있는 nodejs명령어 npx
+*degit : 원격저장소 github에 있는 특정 저장소를 현재 로컬 경로에 다운로드
+
+git clone으로 프로젝트 복제하기
+git저장소에서 직접 다운로드 받을 때는 버전까지 한꺼번에 다운되어 프로젝트를 이어서 진행하게 된다.

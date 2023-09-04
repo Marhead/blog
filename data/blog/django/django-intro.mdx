@@ -94,9 +94,9 @@ def current_datetime(request):
 # Template
 서버가 client에 반환하는 최종 response는 기본적으로 HTML이다. 최근에는 프론트 영역이 발달해서 JSON으로도 Response를 전달하지만, 프론트 개발이 활발해지기 이전 서버들은 HTML 문서를 반환했다. 응답에 사용할 *.html 파일을 작성하면, 장고는 이를 해석해서 최종 HTML 문서를 생성하고, 이를 client에게 보내준다.
 
-Template 파일은 *.html 확장자를 가지며, 장고의 Template 시스템 문법에 맞게 작성한다. 유의할 점은 Template 파일을 **적절한 디렉토리**에 위치시켜야 한다는 점이다. 즉, 장고에서 Template 파일을 찾는 방식을 이해하고 있어야하며, 장고는 그에 맞는 위치에 Template 파일이 위치해야 Template 파일을 찾을 수 있다.
+Template 파일은 *.html 확장자를 가지며, 장고의 독자적인 Template 시스템 문법에 맞게 작성한다. 유의할 점은 Template 파일을 **적절한 디렉터리**에 위치시켜야 한다는 점이다. 장고에서 Template 파일을 찾을 때 참고하는 적절한 디렉터리란 `settings.py`에 설정된 `TEMPLATE_DIRS` 및 `INSTALLED_APPS`에서 지정된 앱의 디렉터리를 검색한다. Template 파일은 앞에 명세된 곳에 위치해야 Template 파일을 찾을 수 있다. Template 파일을 탐색할 여러 개의 디렉터리를 지정할 수 있는데, `settings.py`의 변수들에 지정된 순서대로 디렉터리를 검색하여 Template 파일을 찾는다.
 
-장고에서 Template 파일을 찾을 때는 `settings.py`에 설정된 TEMPLATE_DIRS 및 INSTALLED_APPS에서 지정된 앱의 디렉토리를 검색한다. 여러개의 디렉토리를 지정할 수 있는데, 지정된 순서대로 디렉토리를 검색하여 Template 파일을 찾는다.
+아래는 장고의 Template 시스템 문법을 활용하여 만든 html 예시 파일이다.
 
 ```python
 <!DOCTYPE html>
@@ -119,8 +119,12 @@ Template 파일은 *.html 확장자를 가지며, 장고의 Template 시스템 �
 </html>
 ```
 
+위 코드에서 보듯이 `{% %}`를 활용하여 Template 외부 변수를 주입할 수 있다. 자세한 내용은 다음의 개별 포스트에서 다루도록 하겠다.
+
+다음으로 장고 MVT 모델의 마지막 남은 Model에 대해 알아보자
+
 # Model
-Model은 장고 프레임워크의 추가적인 메타데이터가 포함된 기본적인 데이터베이스 레이아웃이다. 장고 공식 문서에서 설명하는 Model을 조금 더 해석해 보자면, 내 데이터에 대한 확실한 단일 정보원(정보의 근원)이라고 한다. 즉, 다른 데이터들과 구분되는 하나의 데이터에 대한 형식을 정의한 것을 장고의 Model 이라고 한다.
+Model은 장고 프레임워크에서 데이터베이스에 저장되는 데이터를 의미한다. 장고 공식 문서에서 설명하는 Model에 대한 설명을 조금 더 해석해 보면 다음과 같이 기술한다. Model은 장고 프레임워크의 추가적인 메타데이터가 포함된 기본적인 데이터베이스 레이아웃으로서, 내 데이터에 대한 확실한 단일 정보원(정보의 근원)이라고 한다. 즉, 다른 데이터들과 구분되는 하나의 데이터에 대한 형식을 정의한 것을 장고의 Model 이라고 한다.
 
 Model에 대한 대략적인 코드는 다음과 같다.
 
@@ -132,6 +136,9 @@ class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField("date published")
 
+    def __str__(self):
+        return self.question_text
+
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
@@ -139,9 +146,11 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
 ```
 
-장고 내부에 미리 정의된 `django.db.models` 객체를 상속받아 개인이 원하는 자신의 Model을 만들어 낼 수 있다. Model 객체 내부에는 위 코드에서도 보듯 `CharField()`, `DateTimeField()`, `IntegerField()`
+장고 내부에 미리 정의된 `django.db.models` 객체를 상속받아 개인이 원하는 자신의 Model을 만들어 낼 수 있다. Model 객체 내부에는 위 코드에서도 보듯 `CharField()`, `DateTimeField()`, `IntegerField()`등 Model 객체에 미리 정의된 필드들을 활용하여 데이터의 타입을 정의한다.
+
+뿐만 아니라, 파이썬의 객체의 특성을 활용하여 내부 메서드를 정의, 장고 프레임워크 내부에서 편리하게 Model을 호출, 처리할 수 있다.
 
 # Summary
-지금까지도 애용하고 있는 장고 프레임워크의 기본 요소들에 대해서 나름의 방식으로 정리해보았다. 지금은 다양한 확장 패키지들을 추가로 설치하여 사용중이라, 순수 장고의 모양은 많이 사라졌지만, 어차피 기본 원리는 똑같다. 생산성을 높이기 위해 다양한 시도를 하지만, 역시나 가장 짧은 길은 언제나 기본에 있다는 걸 잊지말고 열심히 개발하자.
+지금까지 MVT 패턴과 URL Conf를 활용하여 장고 프레임워크의 기초적인 코드 흐름을 나름의 방식으로 분석해보았다. 지금 사용중인 장고 서버는 다양한 확장 패키지들을 추가로 설치하여 사용중이라 순수 장고의 모양은 많이 사라졌지만, 대부분의 패키지들도 장고의 기본 원리대로 작동한다. 개발 생산성을 높이기 위해 다양한 시도를 하지만, 앞선 개발자들의 다양한 시도로 프레임워크의 기본적인 방식이 적립되어 있다는 걸 잊지말자.
 
 틀린 점 지적해주시면 감사히 다시 공부하겠습니다. 읽어주셔서 감사합니다.

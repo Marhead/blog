@@ -2,7 +2,7 @@ const siteMetadata = {
   title: 'Hoone\'s Den',
   author: 'Chihoon Song',
   headerTitle: 'Hoone\'s Den',
-  description: '개발자 송치훈의 학습 내용 소굴',
+  description: '평소 학습한 개발 관련 지식들을 정리하는 곳',
   language: 'ko-KR',
   theme: 'system', // system, dark or light
   siteUrl: 'https://marhead-blog-marhead.vercel.app/',
@@ -23,10 +23,10 @@ const siteMetadata = {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
     // supports Plausible, Simple Analytics, Umami, Posthog or Google Analytics.
-    umamiAnalytics: {
+    // umamiAnalytics: {
       // We use an env variable for this site to avoid other users cloning our analytics ID
-      umamiWebsiteId: process.env.NEXT_UMAMI_ID, // e.g. 123e4567-e89b-12d3-a456-426614174000
-    },
+      // umamiWebsiteId: process.env.NEXT_UMAMI_ID, // e.g. 123e4567-e89b-12d3-a456-426614174000
+    // },
     // plausibleAnalytics: {
     //   plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
     // },
@@ -74,22 +74,22 @@ const siteMetadata = {
       // example: https://giscus.app/themes/custom_example.css
       themeURL: '',
     },
-    utterancesConfig: {
+    // utterancesConfig: {
       // Visit the link below, and follow the steps in the 'configuration' section
       // https://utteranc.es/
-      repo: process.env.NEXT_PUBLIC_UTTERANCES_REPO,
-      issueTerm: '', // supported options: pathname, url, title
-      label: '', // label (optional): Comment 💬
+      // repo: process.env.NEXT_PUBLIC_UTTERANCES_REPO,
+      // issueTerm: '', // supported options: pathname, url, title
+      // label: '', // label (optional): Comment 💬
       // theme example: github-light, github-dark, preferred-color-scheme
       // github-dark-orange, icy-dark, dark-blue, photon-dark, boxy-light
-      theme: '',
+      // theme: '',
       // theme when dark mode
-      darkTheme: '',
-    },
-    disqusConfig: {
+      // darkTheme: '',
+    // },
+    // disqusConfig: {
       // https://help.disqus.com/en/articles/1717111-what-s-a-shortname
-      shortname: process.env.NEXT_PUBLIC_DISQUS_SHORTNAME,
-    },
+      // shortname: process.env.NEXT_PUBLIC_DISQUS_SHORTNAME,
+    //},
   },
 }
 

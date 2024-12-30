@@ -9,7 +9,7 @@ const siteMetadata = {
   siteRepo: 'https://github.com/Marhead/blog',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
-  socialBanner: '/static/images/twitter-card.png',
+  socialBanner: '/static/images/blog-thumbnail.png',
   email: 'clgns0415@gmail.com',
   telegram: 'https://t.me/Marhead',
   github: 'https://github.com/Marhead',
